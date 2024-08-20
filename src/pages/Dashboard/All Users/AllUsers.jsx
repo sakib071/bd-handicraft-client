@@ -57,11 +57,7 @@ const AllUsers = () => {
 
     return (
         <div className="mt-5">
-            <div className="flex justify-evenly items-center mb-6">
-                <h3>Total Users: <span className="font-bold">{users.length}</span></h3>
-                {/* <h3>Total Price: <span className="font-bold">${totalPrice}</span> </h3> */}
-                <button className="btn btn-neutral btn-xs px-5 rounded-md">Pay</button>
-            </div>
+            <h3 className='mb-5'>Total Users: <span className="font-bold">{users.length}</span></h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}

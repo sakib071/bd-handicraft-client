@@ -24,7 +24,7 @@ const Order = () => {
     return (
         <div className="">
             <Helmet>
-                <title>Bistro | Order Food</title>
+                <title>Hostoshilpo | Order Food</title>
             </Helmet>
 
             <Cover img={orderCover} title={"Order Food"}></Cover>

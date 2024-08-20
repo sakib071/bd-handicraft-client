@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaShoppingCart } from "react-icons/fa";
-import useCart from "../../../hooks/useCart";
-import useAdmin from "../../../hooks/useAdmin";
+// import { FaShoppingCart } from "react-icons/fa";
+// import useCart from "../../../hooks/useCart";
+// import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const [isAdmin] = useAdmin();
-    const [cart] = useCart();
+    // const [isAdmin] = useAdmin();
+    // const [cart] = useCart();
+
 
     const handleLogOut = () => {
         logOut()
@@ -17,36 +18,29 @@ const Navbar = () => {
             .catch(error => console.log(error));
     }
     const navOptions = <>
-        <li className="hover:text-white"><Link to='/'>Home</Link></li>
-        <li className="hover:text-white"><Link to='/menu'>Our Menu</Link></li>
-        <li className="hover:text-white"><Link to='/order/salad'>Order Food</Link></li>
-        {
-            user && isAdmin && <li className="hover:text-white"><Link to='/dashboard/adminHome'>Dashboard</Link></li>
+        <li ><Link to='/' className="text-white hover:text-teal-500 text-base font-semibold">Home</Link></li>
+        <li ><Link to='/products' className="text-white hover:text-teal-500 text-base font-semibold">Products</Link></li>
+        <li ><Link to='/blog' className="text-white hover:text-teal-500 text-base font-semibold">Blog</Link></li>
+        {/* {
+            user && isAdmin && <li><Link to='/dashboard/adminHome' className="text-white hover:text-teal-500 text-base font-semibold">Dashboard</Link></li>
         }
         {
-            user && !isAdmin && <li className="hover:text-white"><Link to='/dashboard/userHome'>Dashboard</Link></li>
-        }
+            user && !isAdmin && <li><Link to='/dashboard/userHome' className="text-white hover:text-teal-500 text-base font-semibold">Dashboard</Link></li>
+        } */}
 
-        <li>
+        {/* <li>
             <Link to="/dashboard/cart">
                 <button className="btn btn-xs">
                     <FaShoppingCart></FaShoppingCart>
                     <div className="badge badge-secondary">{cart.length}</div>
                 </button>
             </Link>
-        </li>
-        {
-            user ? <>
-                <button onClick={handleLogOut} className="btn btn-error btn-xs">Log Out</button>
-                <span className="ml-4">{user?.displayName}</span>
-            </> : <>
-                <li className="hover:text-white"><Link to='/login'>Login</Link></li>
-            </>
-        }
+        </li> */}
     </>
+
     return (
         <>
-            <div className="navbar fixed z-10 bg-opacity-25 bg-black max-w-screen-xl mx-auto ">
+            <div className="navbar fixed z-10 bg-opacity-25 bg-black max-w-screen mx-auto px-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost text-white lg:hidden">
@@ -56,15 +50,25 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl text-white">Bistro Boss</a>
+                    <a className="uppercase text-xl text-white">Bangladeshi<span className="font-bold text-teal-500">Handcrafts</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-sm menu-horizontal px-1 hover:text-white text-white">
+                    <ul className="menu menu-sm menu-horizontal px-1 text-white hover:text-teal-500">
                         {navOptions}
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn btn-sm text-xs">Button</a>
+                    {
+                        user ?
+                            <div className="flex gap-3 items-center">
+                                <figure><img className="w-10 h-10 rounded-full object-cover" src={user?.photoURL} alt="" /></figure>
+                                <span className="ml-4 text-white">{user?.displayName}</span>
+                                <button onClick={handleLogOut} className="text-red-500 hover:text-red-600 font-bold">Log Out</button>
+                            </div> :
+                            <>
+                                <li className="hover:text-white"><Link to='/login'>Login</Link></li>
+                            </>
+                    }
                 </div>
             </div>
         </>

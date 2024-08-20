@@ -16,8 +16,6 @@ import AddItems from "../pages/Dashboard/AddItems/AddItems";
 import AdminRoute from "../providers/AdminRoute";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
-import Payment from "../pages/Dashboard/Payment/Payment";
-import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 
@@ -71,7 +69,7 @@ export const router = createBrowserRouter([
             {
                 path: 'updateItem/:id',
                 element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-                loader: ({ params }) => fetch(`https://bistro-boss-server-gamma-six.vercel.app/menu/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/menu/${params.id}`)
             },
             {
                 path: 'users',
@@ -84,14 +82,6 @@ export const router = createBrowserRouter([
             {
                 path: 'userHome',
                 element: <UserHome></UserHome>
-            },
-            {
-                path: 'payment',
-                element: <Payment></Payment>
-            },
-            {
-                path: 'paymentHistory',
-                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }

@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "business_logo": "/prod-1.jpg",
+        "business_name": "Handicrafts of Bengal",
+        "years_of_operation": 15,
+        "number_of_products": 200,
+        "likes": 1500,
+        "view_product_button": "/products/handicrafts-of-bengal"
+    },
+    {
+        "id": 2,
+        "business_logo": "/prod-2.jpg",
+        "business_name": "Bengal Artisans",
+        "years_of_operation": 10,
+        "number_of_products": 120,
+        "likes": 980,
+        "view_product_button": "/products/bengal-artisans"
+    },
+    {
+        "id": 3,
+        "business_logo": "/prod-3.jpg",
+        "business_name": "Deshi Crafts",
+        "years_of_operation": 8,
+        "number_of_products": 80,
+        "likes": 600,
+        "view_product_button": "/products/deshi-crafts"
+    },
+    {
+        "id": 4,
+        "business_logo": "/prod-4.jpg",
+        "business_name": "Art of Bangladesh",
+        "years_of_operation": 20,
+        "number_of_products": 300,
+        "likes": 2000,
+        "view_product_button": "/products/art-of-bangladesh"
+    },
+    {
+        "id": 5,
+        "business_logo": "/prod-5.jpg",
+        "business_name": "Heritage Handicrafts",
+        "years_of_operation": 12,
+        "number_of_products": 150,
+        "likes": 1200,
+        "view_product_button": "/products/heritage-handicrafts"
+    },
+    {
+        "id": 6,
+        "business_logo": "/prod-6.jpg",
+        "business_name": "Crafts of Bengal",
+        "years_of_operation": 7,
+        "number_of_products": 90,
+        "likes": 550,
+        "view_product_button": "/products/crafts-of-bengal"
+    },
+    {
+        "id": 7,
+        "business_logo": "/prod-7.jpg",
+        "business_name": "Traditional Touch",
+        "years_of_operation": 5,
+        "number_of_products": 60,
+        "likes": 450,
+        "view_product_button": "/products/traditional-touch"
+    },
+    {
+        "id": 8,
+        "business_logo": "/prod-8.jpg",
+        "business_name": "Artisan's Craft",
+        "years_of_operation": 9,
+        "number_of_products": 110,
+        "likes": 700,
+        "view_product_button": "/products/artisans-craft"
+    },
+    {
+        "id": 9,
+        "business_logo": "/prod-9.jpg",
+        "business_name": "Bangla Heritage",
+        "years_of_operation": 16,
+        "number_of_products": 210,
+        "likes": 1650,
+        "view_product_button": "/products/bangla-heritage"
+    },
+    {
+        "id": 10,
+        "business_logo": "/prod-10.jpg",
+        "business_name": "Handmade Bengal",
+        "years_of_operation": 14,
+        "number_of_products": 180,
+        "likes": 1400,
+        "view_product_button": "/products/handmade-bengal"
+    },
+    {
+        "id": 11,
+        "business_logo": "/prod-11.jpg",
+        "business_name": "Bengal Creations",
+        "years_of_operation": 11,
+        "number_of_products": 140,
+        "likes": 1000,
+        "view_product_button": "/products/bengal-creations"
+    },
+    {
+        "id": 12,
+        "business_logo": "/prod-12.jpg",
+        "business_name": "Bangla Craft",
+        "years_of_operation": 13,
+        "number_of_products": 160,
+        "likes": 1300,
+        "view_product_button": "/products/bangla-craft"
+    },
+    {
+        "id": 13,
+        "business_logo": "/prod-13.jpg",
+        "business_name": "Crafty Hands",
+        "years_of_operation": 6,
+        "number_of_products": 70,
+        "likes": 500,
+        "view_product_button": "/products/crafty-hands"
+    },
+    {
+        "id": 14,
+        "business_logo": "/prod-14.jpg",
+        "business_name": "Handmade Heritage",
+        "years_of_operation": 18,
+        "number_of_products": 220,
+        "likes": 1750,
+        "view_product_button": "/products/handmade-heritage"
+    },
+    {
+        "id": 15,
+        "business_logo": "/prod-15.jpg",
+        "business_name": "Crafts of Dhaka",
+        "years_of_operation": 4,
+        "number_of_products": 50,
+        "likes": 350,
+        "view_product_button": "/products/crafts-of-dhaka"
+    },
+    {
+        "id": 16,
+        "business_logo": "/prod-16.jpg",
+        "business_name": "Bengal Treasures",
+        "years_of_operation": 19,
+        "number_of_products": 240,
+        "likes": 1850,
+        "view_product_button": "/products/bengal-treasures"
+    },
+    {
+        "id": 17,
+        "business_logo": "/prod-17.jpg",
+        "business_name": "Crafty Bengal",
+        "years_of_operation": 2,
+        "number_of_products": 40,
+        "likes": 200,
+        "view_product_button": "/products/crafty-bengal"
+    },
+    {
+        "id": 18,
+        "business_logo": "/prod-18.jpg",
+        "business_name": "Bangla Artisans",
+        "years_of_operation": 3,
+        "number_of_products": 45,
+        "likes": 250,
+        "view_product_button": "/products/bangla-artisans"
+    },
+    {
+        "id": 19,
+        "business_logo": "/prod-19.jpg",
+        "business_name": "Handcrafted Dreams",
+        "years_of_operation": 17,
+        "number_of_products": 230,
+        "likes": 1700,
+        "view_product_button": "/products/handcrafted-dreams"
+    },
+    {
+        "id": 20,
+        "business_logo": "/prod-20.jpg",
+        "business_name": "Bengali Hands",
+        "years_of_operation": 10,
+        "number_of_products": 130,
+        "likes": 950,
+        "view_product_button": "/products/bengali-hands"
+    }
+]

@@ -1,21 +1,21 @@
 import { Helmet } from "react-helmet-async";
 import Featured from "../Featured/Featured";
 import Banner from "../Banner/Banner";
-import Category from "../Category/Category";
-import PopularMenu from "../PopularMenu/PopularMenu";
-import Testimonials from "../Testimonials/Testimonials";
+// import PopularMenu from "../PopularMenu/PopularMenu";
+// import Testimonials from "../Testimonials/Testimonials";
+import BusinessPage from "../BusinessPage/BusinessPage";
 
 const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>Bistro | Home</title>
+                <title>Bangladeshi Handcrafts | Home</title>
             </Helmet>
             <Banner></Banner>
-            <Category></Category>
-            <PopularMenu></PopularMenu>
+            <BusinessPage></BusinessPage>
+            {/* <PopularMenu></PopularMenu> */}
             <Featured></Featured>
-            <Testimonials></Testimonials>
+            {/* <Testimonials></Testimonials> */}
         </div>
     );
 };
