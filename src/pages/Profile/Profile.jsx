@@ -33,7 +33,7 @@ const Profile = () => {
         }
     }, [user]);
 
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target; // Correctly destructure name and value
         setProfileData((prevState) => ({
@@ -63,6 +63,7 @@ const Profile = () => {
         }
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validateForm();
@@ -70,7 +71,7 @@ const Profile = () => {
             setLoading(true);
 
             try {
-                const response = await axiosSecure.put(`/users/${profileData.email}`, profileData);
+                const response = await axiosSecure.patch(`/users/${profileData.email}`, profileData);
                 console.log('Response from server:', response.data);
 
                 setProfileData({
