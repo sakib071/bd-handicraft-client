@@ -7,7 +7,7 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "../providers/PrivateRoute";
 import Blogs from "../pages/Blogs/Blogs";
-import Products from "../pages/Home/ProductsPage/Products";
+import Products from "../pages/ProductsPage/Products";
 import ErrorPage from "../ErrorPage";
 import Profile from "../pages/Profile/Profile";
 import SingleBusiness from "../pages/ProductsPage/SingleBusiness";
