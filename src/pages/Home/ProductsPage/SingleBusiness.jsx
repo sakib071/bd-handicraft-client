@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { MdOutlineWifiFind } from "react-icons/md";
 import { useEffect } from "react";
 import { FaLocationDot, FaHeart } from "react-icons/fa6";
 import { MdAccessTimeFilled } from "react-icons/md";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const SingleBusiness = () => {
     const { _id } = useParams();

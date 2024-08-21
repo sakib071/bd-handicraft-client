@@ -7,10 +7,10 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "../providers/PrivateRoute";
 import Blogs from "../pages/Blogs/Blogs";
-import SingleBusiness from "../pages/Home/ProductsPage/Singlebusiness";
 import Products from "../pages/Home/ProductsPage/Products";
 import ErrorPage from "../ErrorPage";
 import Profile from "../pages/Profile/Profile";
+import SingleBusiness from "../pages/Home/ProductsPage/SingleBusiness";
 
 export const router = createBrowserRouter([
     {
