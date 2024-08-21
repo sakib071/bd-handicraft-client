@@ -2,8 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { MdOutlineWifiFind } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useEffect } from "react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Products = () => {

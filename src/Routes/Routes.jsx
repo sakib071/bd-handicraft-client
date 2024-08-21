@@ -10,7 +10,7 @@ import Blogs from "../pages/Blogs/Blogs";
 import Products from "../pages/Home/ProductsPage/Products";
 import ErrorPage from "../ErrorPage";
 import Profile from "../pages/Profile/Profile";
-import SingleBusiness from "../pages/Home/ProductsPage/SingleBusiness";
+import SingleBusiness from "../pages/ProductsPage/SingleBusiness";
 
 export const router = createBrowserRouter([
     {
