@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
@@ -53,7 +52,6 @@ const UpdateItem = () => {
 
     return (
         <div>
-            <SectionTitle heading="Update an Item" subHeading="Refresh info"></SectionTitle>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">

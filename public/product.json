@@ -1,182 +1,162 @@
 [
     {
-        "id": 1,
         "business_logo": "/prod-1.jpg",
         "business_name": "Handicrafts of Bengal",
         "years_of_operation": 15,
         "number_of_products": 200,
         "likes": 1500,
-        "view_product_button": "/products/handicrafts-of-bengal"
+        "description": "Authentic handicrafts showcasing the rich cultural heritage of Bengal. Each item is handcrafted by skilled artisans using traditional techniques."
     },
     {
-        "id": 2,
         "business_logo": "/prod-2.jpg",
         "business_name": "Bengal Artisans",
         "years_of_operation": 10,
         "number_of_products": 120,
         "likes": 980,
-        "view_product_button": "/products/bengal-artisans"
+        "description": "Unique and eco-friendly products made by artisans using sustainable materials. Perfect for those who value craftsmanship and sustainability."
     },
     {
-        "id": 3,
         "business_logo": "/prod-3.jpg",
         "business_name": "Deshi Crafts",
         "years_of_operation": 8,
         "number_of_products": 80,
         "likes": 600,
-        "view_product_button": "/products/deshi-crafts"
+        "description": "Handcrafted items reflecting the traditional artistry of rural Bengal, with a focus on vibrant colors and intricate designs."
     },
     {
-        "id": 4,
         "business_logo": "/prod-4.jpg",
         "business_name": "Art of Bangladesh",
         "years_of_operation": 20,
         "number_of_products": 300,
         "likes": 2000,
-        "view_product_button": "/products/art-of-bangladesh"
+        "description": "A curated collection of Bangladesh's finest crafts, from pottery to textiles, offering a glimpse into the country's rich artistic history."
     },
     {
-        "id": 5,
         "business_logo": "/prod-5.jpg",
         "business_name": "Heritage Handicrafts",
         "years_of_operation": 12,
         "number_of_products": 150,
         "likes": 1200,
-        "view_product_button": "/products/heritage-handicrafts"
+        "description": "Traditional crafts inspired by Bengal's diverse cultural heritage, each piece is a reflection of artistry passed down through generations."
     },
     {
-        "id": 6,
         "business_logo": "/prod-6.jpg",
         "business_name": "Crafts of Bengal",
         "years_of_operation": 7,
         "number_of_products": 90,
         "likes": 550,
-        "view_product_button": "/products/crafts-of-bengal"
+        "description": "Exquisite handmade crafts that blend tradition and modernity, offering a wide range of products from home décor to fashion accessories."
     },
     {
-        "id": 7,
         "business_logo": "/prod-7.jpg",
         "business_name": "Traditional Touch",
         "years_of_operation": 5,
         "number_of_products": 60,
         "likes": 450,
-        "view_product_button": "/products/traditional-touch"
+        "description": "A celebration of tradition and craftsmanship, our products are made using age-old techniques, ensuring quality and authenticity."
     },
     {
-        "id": 8,
         "business_logo": "/prod-8.jpg",
         "business_name": "Artisan's Craft",
         "years_of_operation": 9,
         "number_of_products": 110,
         "likes": 700,
-        "view_product_button": "/products/artisans-craft"
+        "description": "A diverse selection of handcrafted items, each telling a unique story of Bengal's artisans and their dedication to their craft."
     },
     {
-        "id": 9,
         "business_logo": "/prod-9.jpg",
         "business_name": "Bangla Heritage",
         "years_of_operation": 16,
         "number_of_products": 210,
         "likes": 1650,
-        "view_product_button": "/products/bangla-heritage"
+        "description": "Preserving Bengal's heritage through handcrafted products, each made with precision and care, from fabrics to decorative items."
     },
     {
-        "id": 10,
         "business_logo": "/prod-10.jpg",
         "business_name": "Handmade Bengal",
         "years_of_operation": 14,
         "number_of_products": 180,
         "likes": 1400,
-        "view_product_button": "/products/handmade-bengal"
+        "description": "Discover the beauty of Bengal's handmade treasures, from intricate designs to eco-friendly materials, crafted by master artisans."
     },
     {
-        "id": 11,
         "business_logo": "/prod-11.jpg",
         "business_name": "Bengal Creations",
         "years_of_operation": 11,
         "number_of_products": 140,
         "likes": 1000,
-        "view_product_button": "/products/bengal-creations"
+        "description": "A creative fusion of traditional and modern designs, our products are perfect for those seeking originality and craftsmanship."
     },
     {
-        "id": 12,
         "business_logo": "/prod-12.jpg",
         "business_name": "Bangla Craft",
         "years_of_operation": 13,
         "number_of_products": 160,
         "likes": 1300,
-        "view_product_button": "/products/bangla-craft"
+        "description": "From textiles to pottery, explore a wide range of handcrafted products that celebrate the rich culture and heritage of Bangladesh."
     },
     {
-        "id": 13,
         "business_logo": "/prod-13.jpg",
         "business_name": "Crafty Hands",
         "years_of_operation": 6,
         "number_of_products": 70,
         "likes": 500,
-        "view_product_button": "/products/crafty-hands"
+        "description": "Handcrafted products with a contemporary touch, our range is designed to suit modern tastes while honoring traditional methods."
     },
     {
-        "id": 14,
         "business_logo": "/prod-14.jpg",
         "business_name": "Handmade Heritage",
         "years_of_operation": 18,
         "number_of_products": 220,
         "likes": 1750,
-        "view_product_button": "/products/handmade-heritage"
+        "description": "Offering a blend of traditional craftsmanship and modern aesthetics, our products reflect the cultural diversity of Bengal."
     },
     {
-        "id": 15,
         "business_logo": "/prod-15.jpg",
         "business_name": "Crafts of Dhaka",
         "years_of_operation": 4,
         "number_of_products": 50,
         "likes": 350,
-        "view_product_button": "/products/crafts-of-dhaka"
+        "description": "From the heart of Dhaka, explore our collection of locally crafted items, designed to showcase the beauty of traditional art forms."
     },
     {
-        "id": 16,
         "business_logo": "/prod-16.jpg",
         "business_name": "Bengal Treasures",
         "years_of_operation": 19,
         "number_of_products": 240,
         "likes": 1850,
-        "view_product_button": "/products/bengal-treasures"
+        "description": "Treasures from the artisans of Bengal, each product is meticulously crafted to bring a touch of tradition into your home."
     },
     {
-        "id": 17,
         "business_logo": "/prod-17.jpg",
         "business_name": "Crafty Bengal",
         "years_of_operation": 2,
         "number_of_products": 40,
         "likes": 200,
-        "view_product_button": "/products/crafty-bengal"
+        "description": "Specializing in small handcrafted items that are perfect for gifting or personal use, made with love and care by local artisans."
     },
     {
-        "id": 18,
         "business_logo": "/prod-18.jpg",
         "business_name": "Bangla Artisans",
         "years_of_operation": 3,
         "number_of_products": 45,
         "likes": 250,
-        "view_product_button": "/products/bangla-artisans"
+        "description": "Supporting local artisans, our products are crafted with traditional techniques and designed to appeal to a modern audience."
     },
     {
-        "id": 19,
         "business_logo": "/prod-19.jpg",
         "business_name": "Handcrafted Dreams",
         "years_of_operation": 17,
         "number_of_products": 230,
         "likes": 1700,
-        "view_product_button": "/products/handcrafted-dreams"
+        "description": "Turn your dreams into reality with our collection of handcrafted items, made with precision and a passion for detail."
     },
     {
-        "id": 20,
         "business_logo": "/prod-20.jpg",
         "business_name": "Bengali Hands",
         "years_of_operation": 10,
         "number_of_products": 130,
         "likes": 950,
-        "view_product_button": "/products/bengali-hands"
+        "description": "From jewelry to home décor, explore our wide range of products that celebrate the craftsmanship and creativity of Bengali artisans."
     }
 ]

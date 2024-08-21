@@ -1,8 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Featured from "../Featured/Featured";
 import Banner from "../Banner/Banner";
-// import PopularMenu from "../PopularMenu/PopularMenu";
-// import Testimonials from "../Testimonials/Testimonials";
 import BusinessPage from "../BusinessPage/BusinessPage";
 
 const Home = () => {
@@ -13,9 +11,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <BusinessPage></BusinessPage>
-            {/* <PopularMenu></PopularMenu> */}
             <Featured></Featured>
-            {/* <Testimonials></Testimonials> */}
         </div>
     );
 };

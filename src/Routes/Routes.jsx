@@ -3,14 +3,10 @@ import {
 } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
-import Menu from "../pages/Menu/Menu/Menu";
-import Order from "../pages/Order/Order/Order";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
-import Secret from "../pages/Shared/Secret/Secret";
 import PrivateRoute from "../providers/PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
-import Cart from "../pages/Dashboard/Cart/Cart";
 import AllUsers from "../pages/Dashboard/All Users/AllUsers";
 import AddItems from "../pages/Dashboard/AddItems/AddItems";
 import AdminRoute from "../providers/AdminRoute";
@@ -18,6 +14,8 @@ import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import Blogs from "../pages/Blogs/Blogs";
+import SingleBusiness from "../pages/Home/BusinessPage/Singlebusiness";
 
 export const router = createBrowserRouter([
     {
@@ -29,12 +27,16 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: "/menu",
-                element: <Menu></Menu>
+                path: "products",
+                element: <Blogs></Blogs>
             },
             {
-                path: "/order/:category",
-                element: <Order></Order>
+                path: "products/:_id",
+                element: <SingleBusiness></SingleBusiness>
+            },
+            {
+                path: "blogs",
+                element: <Blogs></Blogs>
             },
             {
                 path: "login",
@@ -43,10 +45,6 @@ export const router = createBrowserRouter([
             {
                 path: "signup",
                 element: <SignUp></SignUp>
-            },
-            {
-                path: "secret",
-                element: <PrivateRoute><Secret></Secret></PrivateRoute>
             }
         ]
     },
@@ -74,10 +72,6 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            },
-            {
-                path: 'cart',
-                element: <Cart></Cart>
             },
             {
                 path: 'userHome',

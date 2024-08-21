@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-// import { FaShoppingCart } from "react-icons/fa";
-// import useCart from "../../../hooks/useCart";
 // import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
@@ -18,9 +16,9 @@ const Navbar = () => {
             .catch(error => console.log(error));
     }
     const navOptions = <>
-        <li ><Link to='/' className="text-white hover:text-teal-500 text-base font-semibold">Home</Link></li>
-        <li ><Link to='/products' className="text-white hover:text-teal-500 text-base font-semibold">Products</Link></li>
-        <li ><Link to='/blog' className="text-white hover:text-teal-500 text-base font-semibold">Blog</Link></li>
+        <li><Link to='/' className="text-white hover:text-teal-500 text-base font-semibold">Home</Link></li>
+        <li><Link to='/products' className="text-white hover:text-teal-500 text-base font-semibold">Products</Link></li>
+        <li><Link to='/blogs' className="text-white hover:text-teal-500 text-base font-semibold">Blog</Link></li>
         {/* {
             user && isAdmin && <li><Link to='/dashboard/adminHome' className="text-white hover:text-teal-500 text-base font-semibold">Dashboard</Link></li>
         }
@@ -65,9 +63,11 @@ const Navbar = () => {
                                 <span className="ml-4 text-white">{user?.displayName}</span>
                                 <button onClick={handleLogOut} className="text-red-500 hover:text-red-600 font-bold">Log Out</button>
                             </div> :
-                            <>
-                                <li className="hover:text-white"><Link to='/login'>Login</Link></li>
-                            </>
+                            <div className="flex gap-2 text-white">
+                                <p className="text-white hover:text-teal-500 transition-all ease-in-out"><Link to='/signup'>Register</Link></p>
+                                <div>|</div>
+                                <p className="text-white hover:text-teal-500 transition-all ease-in-out"><Link to='/login'>Login</Link></p>
+                            </div>
                     }
                 </div>
             </div>

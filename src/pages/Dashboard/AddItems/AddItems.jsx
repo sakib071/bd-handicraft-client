@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { FaUtensils } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -49,7 +48,6 @@ const AddItems = () => {
 
     return (
         <div>
-            <SectionTitle heading="add an item" subHeading="What's new?" ></SectionTitle>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
