@@ -7,9 +7,10 @@ const History = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ["history"],
         queryFn: async () => {
-            const response = await axiosPublic.get("/history"); // Use GET method
-            return response.data; // Return data
+            const response = await axiosPublic.get("/history");
+            return response.data;
         },
+        refetchOnWindowFocus: false,
     });
 
     if (isLoading) return (

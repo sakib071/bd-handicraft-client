@@ -1,17 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
-import getBusiness from '../../../hooks/getBusiness';
 import { MdOutlineWifiFind } from "react-icons/md";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaHeart } from "react-icons/fa6";
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 
 const Featured = () => {
+    const axiosPublic = useAxiosPublic();
 
     const { data, isLoading, isError } = useQuery({
         queryKey: ["products"],
-        queryFn: () => getBusiness(),
+        queryFn: async () => {
+            const response = await axiosPublic.get("/products");
+            return response.data;
+        },
+        refetchOnWindowFocus: false,
     });
 
     if (isLoading) return <div className='h-[500px] w-full flex justify-center items-center'>
@@ -26,7 +31,7 @@ const Featured = () => {
         <h2 className="mt-2 text-lg font-medium text-center text-gray-800">No Data Found</h2>
     </section>;
 
-    console.log(data);
+    // console.log(data);
 
     const displayedProduct = data && data.length > 4
         ? data.slice(0, 6)

@@ -19,21 +19,6 @@ const Navbar = () => {
         <li><Link to='/' className="text-black hover:text-teal-500 text-base font-semibold">Home</Link></li>
         <li><Link to='/products' className="text-black hover:text-teal-500 text-base font-semibold">Products</Link></li>
         <li><Link to='/blogs' className="text-black hover:text-teal-500 text-base font-semibold">Blog</Link></li>
-        {/* {
-            user && isAdmin && <li><Link to='/dashboard/adminHome' className="text-black hover:text-teal-500 text-base font-semibold">Dashboard</Link></li>
-        }
-        {
-            user && !isAdmin && <li><Link to='/dashboard/userHome' className="text-black hover:text-teal-500 text-base font-semibold">Dashboard</Link></li>
-        } */}
-
-        {/* <li>
-            <Link to="/dashboard/cart">
-                <button className="btn btn-xs">
-                    <FaShoppingCart></FaShoppingCart>
-                    <div className="badge badge-secondary">{cart.length}</div>
-                </button>
-            </Link>
-        </li> */}
     </>
 
     return (
@@ -48,7 +33,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="uppercase text-xl text-black">Bangladeshi<span className="font-bold text-teal-500">Handcrafts</span></a>
+                    <a href="/" className="uppercase text-xl text-black">Bangladeshi<span className="font-bold text-teal-500">Handcrafts</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-10 px-1 text-black hover:text-teal-500 transition-all ease-in-out">

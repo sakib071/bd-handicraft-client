@@ -1,8 +1,6 @@
-// src/components/CardGrid.js
 import LoadingCard from './LoadingCard';
 
 const CardGrid = () => {
-    // Create an array with the desired number of cards
     const cards = Array(6).fill(null);
 
     return (

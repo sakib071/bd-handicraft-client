@@ -92,9 +92,7 @@ const SignUp = () => {
                     <SocialLogin></SocialLogin>
                     <p className='mt-6 mx-auto text-sm text-black'><Link to="/login" className='hover:underline'>Already have an account? </Link></p>
                 </form>
-
             </div>
-
         </div>
     );
 };

@@ -1,4 +1,3 @@
-// src/components/LoadingCard.js
 
 const LoadingCard = () => {
     return (

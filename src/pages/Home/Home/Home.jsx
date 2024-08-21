@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Featured from "../Featured/Featured";
 import Banner from "../Banner/Banner";
-import BusinessPage from "../ProductsPage/Products";
 import History from "../../../components/History/History";
+import BusinessPage from "../../../components/BusinessPage/BusinessPage";
 
 const Home = () => {
     return (

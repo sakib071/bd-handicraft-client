@@ -8,44 +8,48 @@ import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "../providers/PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../pages/Dashboard/All Users/AllUsers";
-import AddItems from "../pages/Dashboard/AddItems/AddItems";
 import AdminRoute from "../providers/AdminRoute";
-import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
-import UserHome from "../pages/Dashboard/UserHome/UserHome";
-import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Blogs from "../pages/Blogs/Blogs";
 import SingleBusiness from "../pages/Home/ProductsPage/Singlebusiness";
 import Products from "../pages/Home/ProductsPage/Products";
+import ErrorPage from "../ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "products",
-                element: <Products></Products>
+                element: <Products></Products>,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "products/:_id",
-                element: <SingleBusiness></SingleBusiness>
+                element: <SingleBusiness></SingleBusiness>,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "blogs",
-                element: <Blogs></Blogs>
+                element: <Blogs></Blogs>,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "login",
-                element: <Login></Login>
+                element: <Login></Login>,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "signup",
-                element: <SignUp></SignUp>
+                element: <SignUp></SignUp>,
+                errorElement: <ErrorPage />,
             }
         ]
     },
@@ -54,18 +58,6 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
-                path: 'addItems',
-                element: <AdminRoute><AddItems></AddItems></AdminRoute>
-            },
-            {
-                path: 'adminHome',
-                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
-            },
-            {
-                path: 'manageItems',
-                element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
-            },
-            {
                 path: 'updateItem/:id',
                 element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/menu/${params.id}`)
@@ -73,10 +65,6 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            },
-            {
-                path: 'userHome',
-                element: <UserHome></UserHome>
             }
         ]
     }

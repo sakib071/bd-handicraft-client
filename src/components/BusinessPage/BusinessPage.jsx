@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import CardGrid from "../../../components/Loading/CardGrid";
 import { MdOutlineWifiFind } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import CardGrid from "../Loading/CardGrid";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const BusinessPage = () => {
@@ -11,10 +11,10 @@ const BusinessPage = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ["products"],
         queryFn: async () => {
-            const response = await axiosPublic.get("/products"); // Use GET method
-            return response.data; // Return data
+            const response = await axiosPublic.get("/products");
+            return response.data;
         },
-        // refetchOnWindowFocus: false,
+        refetchOnWindowFocus: false,
     });
 
     if (isLoading) return <CardGrid />;
@@ -23,7 +23,7 @@ const BusinessPage = () => {
         <h2 className="mt-2 text-lg font-medium text-center text-gray-800">No Data Found</h2>
     </section>;
 
-    console.log(data);
+    // console.log(data);
 
     const displayedProduct = data && data.length > 4
         ? data.slice(0, 6)
@@ -60,12 +60,8 @@ const BusinessPage = () => {
                                 <div className="mt-4">
                                 </div>
                             </div>
-                            {/* <Link href={`/products/${product?._id}`} className="text-teal-500 hover:text-indigo-900">View Products</Link> */}
                         </div>
-
-
                     </Link>
-
                 ))}
 
             </div>

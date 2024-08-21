@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { MdOutlineWifiFind } from "react-icons/md";
 import { useEffect } from "react";
+import { FaLocationDot, FaHeart } from "react-icons/fa6";
+import { MdAccessTimeFilled } from "react-icons/md";
 
 const SingleBusiness = () => {
     const { _id } = useParams();
@@ -14,10 +16,11 @@ const SingleBusiness = () => {
             const response = await axiosPublic.get(`/products/${_id}`);
             return response.data;
         },
+        refetchOnWindowFocus: false,
     });
 
     useEffect(() => {
-        window.scrollTo(0, 0);  // Scrolls the window to the top
+        window.scrollTo(0, 0);
     }, []);
 
     console.log(data);
@@ -54,23 +57,39 @@ const SingleBusiness = () => {
 
     return (
         <div className="min-h-screen py-20 max-w-7xl mx-auto">
-            <h1 className="text-3xl font-bold inter-800 mb-10 border-l-8 border-teal-400 pl-4">{data.business_name}</h1>
+            <h1 className="text-3xl font-bold inter-800 my-10 border-l-8 border-teal-400 pl-4">{data.business_name}</h1>
 
             <div className="grid grid-cols-2 gap-5 mx-auto">
                 <figure><img className="rounded-xl w-[600px]" src={data.business_logo} alt="data Image" /></figure>
-                <div className="mx-5 space-y-3">
-                    <h3 className="text-3xl font-semibold">About <span className="text-teal-500 uppercase">{data?.business_name}</span></h3>
+                <div className="mx-5">
+                    <h3 className="text-3xl font-semibold mb-3">About <span className="text-teal-500 uppercase">{data?.business_name}</span></h3>
                     <p className="w-[550px] text-lg text-justify text-gray-600">{data?.description}</p>
-                    <p className="w-[550px] text-lg text-justify text-gray-600">Years of operations: <span className="text-teal-500 uppercase">{data?.years_of_operation}</span></p>
-                    <p className="w-[550px] text-lg text-justify text-gray-600">Likes: <span className="text-teal-500 uppercase">{data?.likes}</span></p>
+                    <div className="space-y-2 mt-10 inter-500">
+                        <div className="flex gap-3 items-center">
+                            <MdAccessTimeFilled className="text-teal-500" />
+                            <p className="w-[550px] text-lg text-justify text-gray-600">{data?.years_of_operation} years</p>
+                        </div>
+                        <div className="flex gap-3 items-center">
+                            <FaHeart className="text-teal-500" />
+                            <p className="w-[550px] text-lg text-justify text-gray-600">{data?.likes} likes</p>
+                        </div>
+                        <div className="flex gap-3 items-center">
+                            <FaLocationDot className="text-teal-500" />
+                            <p className="w-[550px] text-lg text-justify text-gray-600">{data?.location}</p>
+
+                        </div>
+                    </div>
+                    <div className="flex flex-col space-y-3 mt-5">
+                        {
+                            data?.featured_products?.map((tag, index) => (
+                                <p key={index} className="bg-teal-50 border border-teal-600 px-3 py-[1px] rounded-full text-black w-fit" href="#">{tag}</p>
+
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>
-
-        //     "years_of_operation": 15,
-        //         "number_of_products": 200,
-        //             "likes": 1500,
-        //                 "description":
     );
 };
 

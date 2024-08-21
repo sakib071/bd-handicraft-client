@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import CardGrid from "../../../components/Loading/CardGrid";
 import { MdOutlineWifiFind } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -13,17 +12,23 @@ const Products = () => {
         queryKey: ["products"],
         queryFn: async () => {
             const response = await axiosPublic.get("/products"); // Use GET method
-            return response.data; // Return data
+            return response.data;
         },
-        // refetchOnWindowFocus: false,
+        refetchOnWindowFocus: false,
     });
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    if (isLoading) return <CardGrid />;
-    if (isError) return <section className="w-full mx-auto">
+    if (isLoading) return <div className='h-[500px] w-full flex justify-center items-center'>
+        <div className="flex items-center justify-center space-x-2">
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
+        </div>
+    </div>;
+    if (isError) return <section className="w-full h-[500px] flex flex-col justify-center items-center mx-auto">
         <MdOutlineWifiFind className='text-6xl text-gray-600 text-center w-full' />
         <h2 className="mt-2 text-lg font-medium text-center text-gray-800">No Data Found</h2>
     </section>;
@@ -38,11 +43,19 @@ const Products = () => {
                     <Link to={`/products/${product?._id}`} key={index} className="flex mx-auto bg-white rounded-xl border hover:shadow-lg overflow-hidden transition hover:cursor-pointer">
                         <div className="relative">
                             <article className="w-[220px] h-full rounded-l-lg">
-                                <img
-                                    alt={product?.business_name}
-                                    src={product?.business_logo}
-                                    className="h-full w-full object-cover"
-                                />
+
+                                {
+                                    isLoading ? <div className="flex items-center justify-center space-x-2">
+                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
+                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
+                                        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
+                                    </div> : <img
+                                        alt={product?.business_name}
+                                        src={product?.business_logo}
+                                        className="h-[300px] w-full object-cover"
+                                    />
+                                }
+
                             </article>
                             <div className='absolute top-3 left-3 flex gap-2 products-center'>
                                 <FaHeart className='text-red-500 text-xl' />
@@ -61,12 +74,8 @@ const Products = () => {
                                 <div className="mt-4">
                                 </div>
                             </div>
-                            {/* <Link href={`/products/${product?._id}`} className="text-teal-500 hover:text-indigo-900">View Products</Link> */}
                         </div>
-
-
                     </Link>
-
                 ))}
 
             </div>
