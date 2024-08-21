@@ -1,15 +1,27 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useEffect } from "react";
 
 const Blogs = () => {
     const axiosPublic = useAxiosPublic();
+    const code = `
+    import React, { useState } from 'react';
 
-    // const { data, isLoading, isError } = useQuery({
-    //     queryKey: ["blogs"],
-    //     queryFn: () => axiosPublic("blogs"),
-    //     refetchOnWindowFocus: false,
-    // });
+    const Counter = () => {
+        const [count, setCount] = useState(0);
 
+        return (
+            <div>
+                <p>You clicked {count} times</p>
+                <button onClick={() => setCount(count + 1)}>
+                    Click me
+                </button>
+            </div>
+        );
+    }
+
+    export default Counter;
+    `;
     const { data, isLoading, isError } = useQuery({
         queryKey: ["blogs"],
         queryFn: async () => {
@@ -18,6 +30,10 @@ const Blogs = () => {
         },
         // refetchOnWindowFocus: false,
     });
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
 
     console.log(data);
@@ -49,59 +65,42 @@ const Blogs = () => {
 
     return (
         <div>
-            <section className="w-full px-4 py-40 mx-auto max-w-7xl md:w-4/5">
-                <div className="flex gap-5 justify-between mb-10">
-                    {data?.length > 0 && data[0] && (
-                        <figure className="w-1/2">
-                            <img src={data[0]?.image || "/news.jpg"} className="object-cover w-full h-72 bg-center rounded" alt="blog-post" loading="lazy" />
-                        </figure>
-                    )}
-                    <div className="w-1/2">
-                        <p className="mb-2 text-xs font-semibold tracking-wider text-gray-400 uppercase">{data[0]?.category || "Category"}</p>
-                        <h2 className="mb-2 text-xl font-bold leading-snug text-gray-900">
-                            <a href="#" className="text-gray-900 hover:text-orange-500">{data[0]?.title || "Featured Blog Title"}</a>
-                        </h2>
-                        <p className="mb-4 text-sm font-normal text-gray-600">
-                            {data[0]?.excerpt || "Featured blog excerpt goes here..."}
-                        </p>
-                        <a className="flex items-center text-gray-700" href="#">
-                            <figure className="avatar w-[50px] h-[50px]">
-                                <img className="w-[50px] h-[50px] rounded-full" src={"/avatar-placeholder.jpg"} alt={`Photo of ${data[0]?.author || "Author"}`} />
-                            </figure>
-                            <div className="ml-2">
-                                <p className="text-sm font-semibold text-gray-900">{data[0]?.author || "Author"}</p>
-                                <p className="text-sm text-gray-600">{data[0]?.published_date || "Date"}</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <article className="px-4 py-20 mx-auto max-w-5xl" itemID="#" itemScope>
+                <img src="https://i.ibb.co/KrHqMLr/banner.jpg" className="object-cover object-top w-full h-64 bg-center rounded-lg" alt="blog-image" />
+                {
+                    data.map((item, index) => (
+                        <div key={index} className="mb-20">
+                            <div className="w-full mx-auto mb-8 text-left lg:max-w-6xl">
+                                <p className="mt-6 mb-2 text-xs font-semibold tracking-wider uppercase text-teal-500">{item?.slug}</p>
+                                <h1 className="mb-3 text-lg font-bold leading-tight text-gray-900 md:text-xl" itemProp="headline" title={item?.title}>
+                                    {item?.title}
+                                </h1>
+                                <div className="flex space-x-2">
+                                    {
+                                        item?.related_concepts?.map((tag, index) => (
+                                            <p key={index} className="bg-gray-100 text-black badge" href="#">{tag}</p>
 
-                <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-                    {data.map((item, index) => (
-                        <div key={index}>
-                            <a href="#">
-                                <img src={item.image || "/news.jpg"} className="object-cover w-full h-56 mb-5 bg-center rounded" alt="blog-post" loading="lazy" />
-                            </a>
-                            <p className="mb-2 text-xs font-semibold tracking-wider text-gray-400 uppercase">{item?.category || "Category"}</p>
-                            <h2 className="mb-2 text-xl font-bold leading-snug text-gray-900">
-                                <a href="#" className="text-gray-900 line-clamp-1 hover:text-orange-500">{item?.title || "Blog Title"}</a>
-                            </h2>
-                            <p className="mb-4 text-sm font-normal line-clamp-3 text-gray-600">
-                                {item?.excerpt || "Blog excerpt goes here..."}
-                            </p>
-                            <a className="flex items-center text-gray-700" href="#">
-                                <figure className="avatar w-[50px] h-[50px]">
-                                    <img className="w-[50px] h-[50px] rounded-full" src={"/avatar-placeholder.jpg"} alt={`Photo of ${item?.author || "Author"}`} />
-                                </figure>
-                                <div className="ml-2">
-                                    <p className="text-sm font-semibold text-gray-900">{item?.author || "Author"}</p>
-                                    <p className="text-sm text-gray-600">{item?.published_date || "Date"}</p>
+                                        ))
+                                    }
                                 </div>
-                            </a>
+                            </div>
+                            <div className="w-full mx-auto prose lg:max-w-5xl">
+                                <p>
+                                    {item.description}
+                                </p>
+                            </div>
+                            <pre className="whitespace-pre-wrap bg-slate-800 text-white text-sm rounded-lg max-w-5xl my-5 mx-auto">
+                                <code>{code}</code>
+                            </pre>
+                            <div className="w-full mx-auto prose lg:max-w-5xl">
+                                <p>
+                                    {item.content}
+                                </p>
+                            </div>
                         </div>
-                    ))}
-                </div>
-            </section>
+                    ))
+                }
+            </article>
         </div>
     );
 };

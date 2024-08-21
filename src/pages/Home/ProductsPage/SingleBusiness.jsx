@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { MdOutlineWifiFind } from "react-icons/md";
+import { useEffect } from "react";
 
 const SingleBusiness = () => {
     const { _id } = useParams();
@@ -14,6 +16,10 @@ const SingleBusiness = () => {
         },
     });
 
+    useEffect(() => {
+        window.scrollTo(0, 0);  // Scrolls the window to the top
+    }, []);
+
     console.log(data);
 
 
@@ -24,7 +30,10 @@ const SingleBusiness = () => {
             <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
         </div>
     </div>;
-    if (isError) return <div>Error fetching data</div>;
+    if (isError) return <section className="w-full mx-auto">
+        <MdOutlineWifiFind className='text-6xl text-gray-600 text-center w-full' />
+        <h2 className="mt-2 text-lg font-medium text-center text-gray-800">No Data Found</h2>
+    </section>;
 
 
     if (!data) return (
@@ -45,14 +54,14 @@ const SingleBusiness = () => {
 
     return (
         <div className="min-h-screen py-20 max-w-7xl mx-auto">
-            <h1 className="text-3xl font-bold inter-800 mb-10 border-l-8 border-teal-400 pl-4">{data.data}</h1>
+            <h1 className="text-3xl font-bold inter-800 mb-10 border-l-8 border-teal-400 pl-4">{data.business_name}</h1>
 
             <div className="grid grid-cols-2 gap-5 mx-auto">
                 <figure><img className="rounded-xl w-[600px]" src={data.business_logo} alt="data Image" /></figure>
                 <div className="mx-5 space-y-3">
                     <h3 className="text-3xl font-semibold">About <span className="text-teal-500 uppercase">{data?.business_name}</span></h3>
                     <p className="w-[550px] text-lg text-justify text-gray-600">{data?.description}</p>
-                    <p className="w-[550px] text-lg text-justify text-gray-600">Years of Password: <span className="text-teal-500 uppercase">{data?.years_of_operation}</span></p>
+                    <p className="w-[550px] text-lg text-justify text-gray-600">Years of operations: <span className="text-teal-500 uppercase">{data?.years_of_operation}</span></p>
                     <p className="w-[550px] text-lg text-justify text-gray-600">Likes: <span className="text-teal-500 uppercase">{data?.likes}</span></p>
                 </div>
             </div>

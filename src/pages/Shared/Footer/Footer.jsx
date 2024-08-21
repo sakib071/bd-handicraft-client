@@ -17,10 +17,10 @@ const Footer = () => {
 
                 <nav className="col-span-1 md:col-span-1 lg:col-span-2">
                     <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Contact Details</p>
-                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#">Name</a>
-                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#"> Email </a>
-                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#">Phone</a>
-                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#">Address</a>
+                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#">Bangladeshi Handicrafts</a>
+                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#"> bangladeshicrafts@gmail.com</a>
+                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#">+880 1323332123</a>
+                    <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-teal-500" href="#">Chittagong, Bangladesh</a>
                 </nav>
                 <nav className="col-span-1 md:col-span-1 lg:col-span-2">
                     <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Social Links</p>

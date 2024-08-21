@@ -15,7 +15,8 @@ import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Blogs from "../pages/Blogs/Blogs";
-import SingleBusiness from "../pages/Home/BusinessPage/Singlebusiness";
+import SingleBusiness from "../pages/Home/ProductsPage/Singlebusiness";
+import Products from "../pages/Home/ProductsPage/Products";
 
 export const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "products",
-                element: <Blogs></Blogs>
+                element: <Products></Products>
             },
             {
                 path: "products/:_id",

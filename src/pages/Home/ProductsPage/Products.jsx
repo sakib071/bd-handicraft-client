@@ -4,9 +4,10 @@ import { MdOutlineWifiFind } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useEffect } from "react";
 
 
-const BusinessPage = () => {
+const Products = () => {
     const axiosPublic = useAxiosPublic();
     const { data, isLoading, isError } = useQuery({
         queryKey: ["products"],
@@ -17,6 +18,10 @@ const BusinessPage = () => {
         // refetchOnWindowFocus: false,
     });
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     if (isLoading) return <CardGrid />;
     if (isError) return <section className="w-full mx-auto">
         <MdOutlineWifiFind className='text-6xl text-gray-600 text-center w-full' />
@@ -25,15 +30,11 @@ const BusinessPage = () => {
 
     console.log(data);
 
-    const displayedProduct = data && data.length > 4
-        ? data.slice(0, 6)
-        : data;
-
     return (
-        <div className="my-20">
+        <div className="min-h-screen py-20 max-w-7xl mx-auto">
             <h3 className="z-10 text-4xl inter-600 mb-5 mx-auto max-w-3xl text-black text-center">Business <span className="text-teal-500">Products</span></h3>
             <div className="max-w-5xl xl:max-w-7xl grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
-                {displayedProduct.map((product, index) => (
+                {data.map((product, index) => (
                     <Link to={`/products/${product?._id}`} key={index} className="flex mx-auto bg-white rounded-xl border hover:shadow-lg overflow-hidden transition hover:cursor-pointer">
                         <div className="relative">
                             <article className="w-[220px] h-full rounded-l-lg">
@@ -56,7 +57,7 @@ const BusinessPage = () => {
                             <div className="h-[200px]">
                                 <p className="uppercase tracking-wide text-lg text-teal-500 font-semibold">{product.business_name}</p>
                                 <p className="mt-1 text-base leading-tight font-medium text-black">Operating for 15 Years</p>
-                                <p className="mt-2 text-gray-500 text-sm line-clamp-4">Quantity: {product?.description}</p>
+                                <p className="mt-2 text-gray-500 text-sm line-clamp-6">{product?.description}</p>
                                 <div className="mt-4">
                                 </div>
                             </div>
@@ -74,4 +75,4 @@ const BusinessPage = () => {
     );
 };
 
-export default BusinessPage;
+export default Products;
