@@ -35,7 +35,7 @@ const Blogs = () => {
 
     if (isError || !data || data.length === 0) {
         return (
-            <div className="grid h-screen place-content-center bg-white px-4">
+            <div className="grid h-screen place-content-center dark:bg-slate-800 bg-white px-4">
                 <div className="text-center">
                     <h1 className="text-9xl font-black text-gray-200">404</h1>
                     <p className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">Uh-oh!</p>
@@ -55,7 +55,7 @@ const Blogs = () => {
                         <div key={index} className="mb-20">
                             <div className="w-full mx-auto mb-8 text-left lg:max-w-6xl">
                                 <p className="mt-6 mb-2 text-xs font-semibold tracking-wider uppercase text-teal-500">{item?.slug}</p>
-                                <h1 className="mb-3 text-lg font-bold leading-tight text-gray-900 md:text-xl" itemProp="headline" title={item?.title}>
+                                <h1 className="mb-3 text-lg font-bold leading-tight dark:text-white text-gray-900 md:text-xl" itemProp="headline" title={item?.title}>
                                     {item?.title}
                                 </h1>
                                 <div className="flex space-x-2">
@@ -67,7 +67,7 @@ const Blogs = () => {
                                     }
                                 </div>
                             </div>
-                            <div className="w-full mx-auto prose lg:max-w-5xl">
+                            <div className="w-full mx-auto prose lg:max-w-5xl dark:text-gray-300 text-gray-900">
                                 <p>
                                     {item.description}
                                 </p>
@@ -75,7 +75,7 @@ const Blogs = () => {
                             <pre className="whitespace-pre-wrap bg-slate-800 text-white text-sm rounded-lg max-w-5xl p-10 my-5 mx-auto">
                                 <code>{item.example_code}</code>
                             </pre>
-                            <div className="w-full mx-auto prose lg:max-w-5xl">
+                            <div className="w-full mx-auto prose lg:max-w-5xl dark:text-gray-300 text-gray-900">
                                 <p>
                                     {item.content}
                                 </p>

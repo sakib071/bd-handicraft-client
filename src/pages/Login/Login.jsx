@@ -3,6 +3,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { FaAngleLeft } from "react-icons/fa6";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
 
@@ -20,7 +21,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                alert("Login Successful")
+                toast.success('Login successful!');
                 navigate(from, { replace: true });
                 console.log(user);
             })
@@ -33,19 +34,19 @@ const Login = () => {
                     <FaAngleLeft />
                     <a href="/" className='hover:underline'>Back to Home</a>
                 </div>
-                <h1 className="text-2xl font-bold text-center">Login now!</h1>
+                <h1 className="text-2xl font-bold text-center dark:text-white text-gray-900">Login now!</h1>
                 <form onSubmit={handleLogin} className="space-y-5">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text dark:text-white text-gray-900">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered bg-white dark:bg-gray-900" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text dark:text-white text-gray-900">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                        <input type="password" name="password" placeholder="password" className="input input-bordered bg-white dark:bg-gray-900" required />
                     </div>
 
                     <div className="flex w-full flex-col border-opacity-50">
@@ -56,10 +57,10 @@ const Login = () => {
                         <SocialLogin></SocialLogin>
                     </div>
 
-                    <p className='mt-6 mx-auto text-sm text-black'>Don&apos;t have an account? <Link to="/signup" className='hover:underline'>Create an account</Link></p>
+                    <p className='mt-6 mx-auto text-sm dark:text-white text-gray-900'>Don&apos;t have an account? <Link to="/signup" className='hover:underline'>Create an account</Link></p>
                 </form>
             </div>
-
+            <Toaster position="top-center" reverseOrder={false} />
         </div>
     );
 };

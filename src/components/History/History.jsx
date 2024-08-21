@@ -25,47 +25,47 @@ const History = () => {
 
     if (isError) return (
         <section className="w-full mx-auto">
-            <MdOutlineWifiFind className='text-6xl text-gray-600 text-center w-full' />
-            <h2 className="mt-2 text-lg font-medium text-center text-gray-800">No Data Found</h2>
+            <MdOutlineWifiFind className='text-6xl dark:text-white text-gray-600 text-center w-full' />
+            <h2 className="mt-2 text-lg font-medium text-center dark:text-white text-gray-800">No Data Found</h2>
         </section>
     );
 
     return (
         <div className="max-w-7xl mx-auto p-8">
-            <h3 className="text-3xl font-bold inter-600 text-center mb-5">
+            <h3 className="text-3xl font-bold inter-600 text-center dark:text-white text-gray-800 mb-5">
                 History of <span className="text-teal-500">Handicrafts in Bangladesh</span>
             </h3>
 
             {
                 data.map((item, index) => (
                     <div key={index}>
-                        <h1 className="text-xl text-gray-500 text-center mb-4">{item?.title}</h1>
+                        <h1 className="text-xl dark:text-white text-gray-500 text-center mb-4">{item?.title}</h1>
 
                         {/* Pre-Independence Era */}
                         <h2 className="text-xl font-semibold mb-2 text-teal-500">Pre-Independence Era</h2>
-                        <p className="mb-4 text-gray-500">
-                            <strong className="text-gray-700">British Colonial Influence:</strong> {item?.pre_independence_era?.british_colonial_influence}
+                        <p className="mb-4 dark:text-white text-gray-700">
+                            <strong className="dark:text-white text-gray-700">British Colonial Influence:</strong> {item?.pre_independence_era?.british_colonial_influence}
                         </p>
-                        <p className="mb-4 text-gray-500">
-                            <strong className="text-gray-700">Rural Industries:</strong> {item?.pre_independence_era?.rural_industries}
+                        <p className="mb-4 dark:text-white text-gray-700">
+                            <strong className="dark:text-white text-gray-700">Rural Industries:</strong> {item?.pre_independence_era?.rural_industries}
                         </p>
 
                         {/* Post-Independence Era */}
                         <h2 className="text-xl font-semibold mb-2 text-teal-500">Post-Independence Era</h2>
-                        <p className="mb-4 text-gray-500">
-                            <strong className="text-gray-700">Government Support:</strong> {item?.post_independence_era?.government_support}
+                        <p className="mb-4 dark:text-white text-gray-700">
+                            <strong className="dark:text-white text-gray-700">Government Support:</strong> {item?.post_independence_era?.government_support}
                         </p>
-                        <p className="mb-4 text-gray-500">
-                            <strong className="text-gray-700">Global Market:</strong> {item?.post_independence_era?.global_market}
+                        <p className="mb-4 dark:text-white text-gray-700">
+                            <strong className="dark:text-white text-gray-700">Global Market:</strong> {item?.post_independence_era?.global_market}
                         </p>
-                        <p className="mb-4 text-gray-500">
-                            <strong className="text-gray-700">Challenges and Opportunities:</strong> {item?.post_independence_era?.challenges_and_opportunities}
+                        <p className="mb-4 dark:text-white text-gray-700">
+                            <strong className="dark:text-white text-gray-700">Challenges and Opportunities:</strong> {item?.post_independence_era?.challenges_and_opportunities}
                         </p>
                         <h2 className="text-xl font-semibold mb-4 text-teal-500">Key Handicrafts of Bangladesh</h2>
                         <ul className="list-disc ml-6">
                             {
                                 Object.keys(item?.key_handicrafts).map((handicraftKey, index) => (
-                                    <li key={index}>
+                                    <li key={index} className="dark:text-white text-gray-700">
                                         <strong>{handicraftKey.charAt(0).toUpperCase() + handicraftKey.slice(1)}:</strong> {item?.key_handicrafts[handicraftKey]}
                                     </li>
                                 ))

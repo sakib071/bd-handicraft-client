@@ -57,32 +57,32 @@ const SingleBusiness = () => {
 
     return (
         <div className="min-h-screen py-20 max-w-7xl mx-auto">
-            <h1 className="text-3xl font-bold inter-800 my-10 border-l-8 border-teal-400 pl-4">{data.business_name}</h1>
+            <h1 className="text-3xl inter-700 my-10 border-l-8 dark:text-white text-black border-teal-400 pl-4">{data.business_name}</h1>
 
             <div className="grid grid-cols-2 gap-5 mx-auto">
                 <figure><img className="rounded-xl w-[600px]" src={data.business_logo} alt="data Image" /></figure>
                 <div className="mx-5">
-                    <h3 className="text-3xl font-semibold mb-3">About <span className="text-teal-500 uppercase">{data?.business_name}</span></h3>
-                    <p className="w-[550px] text-lg text-justify text-gray-600">{data?.description}</p>
+                    <h3 className="text-3xl font-semibold mb-3 dark:text-white text-black">About <span className="text-teal-500 uppercase">{data?.business_name}</span></h3>
+                    <p className="w-[550px] text-lg text-justify dark:text-gray-300 text-gray-600">{data?.description}</p>
                     <div className="space-y-2 mt-10 inter-500">
                         <div className="flex gap-3 items-center">
                             <MdAccessTimeFilled className="text-teal-500" />
-                            <p className="w-[550px] text-lg text-justify text-gray-600">{data?.years_of_operation} years</p>
+                            <p className="w-[550px] text-lg text-justify dark:text-gray-300 text-gray-600">{data?.years_of_operation} years</p>
                         </div>
                         <div className="flex gap-3 items-center">
                             <FaHeart className="text-teal-500" />
-                            <p className="w-[550px] text-lg text-justify text-gray-600">{data?.likes} likes</p>
+                            <p className="w-[550px] text-lg text-justify dark:text-gray-300 text-gray-600">{data?.likes} likes</p>
                         </div>
                         <div className="flex gap-3 items-center">
                             <FaLocationDot className="text-teal-500" />
-                            <p className="w-[550px] text-lg text-justify text-gray-600">{data?.location}</p>
+                            <p className="w-[550px] text-lg text-justify dark:text-gray-300 text-gray-600">{data?.location}</p>
 
                         </div>
                     </div>
                     <div className="flex flex-col space-y-3 mt-5">
                         {
                             data?.featured_products?.map((tag, index) => (
-                                <p key={index} className="bg-teal-50 border border-teal-600 px-3 py-[1px] rounded-full text-black w-fit" href="#">{tag}</p>
+                                <p key={index} className="bg-teal-50 dark:bg-teal-500 border border-teal-600 px-3 py-[1px] rounded-full dark:text-white text-black w-fit" href="#">{tag}</p>
 
                             ))
                         }

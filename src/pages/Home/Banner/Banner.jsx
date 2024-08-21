@@ -2,7 +2,7 @@ import './Banner.css'
 
 const Banner = () => {
     return (
-        <section id="bannerBG" className="">
+        <section id="bannerBG" className="bg-white dark:bg-gray-900">
             <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center lg:px-8">
                 <div className="w-full text-center mx-auto uppercase">
                     <h1 className="block font-bold text-white text-3xl lg:text-4xl">

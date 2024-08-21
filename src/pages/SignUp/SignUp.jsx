@@ -1,11 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2'
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { FaAngleLeft } from "react-icons/fa6";
+import toast, { Toaster } from 'react-hot-toast';
 
 const SignUp = () => {
 
@@ -13,6 +13,7 @@ const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [emailError, setEmailError] = useState('');
 
 
     const onSubmit = data => {
@@ -24,28 +25,29 @@ const SignUp = () => {
                     .then(() => {
                         const userInfo = {
                             name: data.name,
-                            email: data.email
+                            email: data.email,
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
                                     console.log("user added to the database");
                                     reset();
-                                    Swal.fire({
-                                        position: "center",
-                                        icon: "success",
-                                        title: "Sign Up Successful",
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    });
+                                    toast.success('Signup successful!');
                                     navigate("/");
                                 }
                             })
 
                     }).catch(error => console.log(error))
+            })
+            .catch(error => {
+                // Check if the error is due to email already being registered
+                if (error.code === "auth/email-already-in-use") {
+                    setEmailError("This email is already registered. Please use a different email.");
+                } else {
+                    console.log(error.message);
+                }
             });
     };
-
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center">
@@ -54,45 +56,46 @@ const SignUp = () => {
                     <FaAngleLeft />
                     <a href="/" className='hover:underline'>Back to Home</a>
                 </div>
-                <h1 className="text-2xl font-bold text-center">Sign Up</h1>
+                <h1 className="text-2xl font-bold text-center dark:text-white text-gray-900">Sign Up</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text dark:text-white text-gray-900">Name</span>
                         </label>
-                        <input type="text" name="name" {...register("name", { required: true })} placeholder="Name" className="input input-bordered" />
+                        <input type="text" name="name" {...register("name", { required: true })} placeholder="Name" className="input input-bordered text-black dark:text-white bg-white dark:bg-gray-900" />
                         {errors.name && <span className="text-red-600 mt-1 text-xs">Name is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Photo URL</span>
+                            <span className="label-text dark:text-white text-gray-900">Photo URL</span>
                         </label>
-                        <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                        <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered text-black dark:text-white bg-white dark:bg-gray-900" />
                         {errors.photoURL && <span className="text-red-600 mt-1 text-xs">Photo URL is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text dark:text-white text-gray-900">Email</span>
                         </label>
-                        <input type="email"  {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                        <input type="email"  {...register("email", { required: true })} placeholder="email" className="input input-bordered text-black dark:text-white bg-white dark:bg-gray-900" />
                         {errors.email && <span className="text-red-600 mt-1 text-xs">Email is required</span>}
+                        {/* Display email error message */}
+                        {emailError && <span className="text-red-600 mt-1 text-xs">{emailError}</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text dark:text-white text-gray-900">Password</span>
                         </label>
-                        <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20 })} placeholder="password" className="input input-bordered" required />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20 })} placeholder="password" className="input input-bordered text-black dark:text-white bg-white dark:bg-gray-900" required />
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn btn-primary text-white bg-teal-500 hover:bg-teal-600 border-0" type="submit" value="Sign up" />
                     </div>
+                    <div className="divider text-sm normal-case">Or Login with</div>
                     <SocialLogin></SocialLogin>
-                    <p className='mt-6 mx-auto text-sm text-black'><Link to="/login" className='hover:underline'>Already have an account? </Link></p>
+                    <p className='mt-6 mx-auto text-sm dark:text-white text-gray-900'><Link to="/login" className='hover:underline'>Already have an account? </Link></p>
                 </form>
             </div>
+            <Toaster position="top-center" reverseOrder={false} />
         </div>
     );
 };

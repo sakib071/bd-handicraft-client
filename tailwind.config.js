@@ -4,9 +4,9 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // This enables dark mode via a class on the root element
   theme: {
-    extend: ["light"],
+    extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui")], // DaisyUI plugin for Tailwind
 }
-

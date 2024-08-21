@@ -71,13 +71,13 @@ const Featured = () => {
 
     return (
         <div className="my-20">
-            <h3 className="text-3xl font-bold inter-600 text-center mb-10">Featured <span className="text-teal-500">Products</span></h3>
+            <h3 className="text-3xl font-bold inter-600 text-center mb-10 dark:text-white text-gray-700">Featured <span className="text-teal-500">Products</span></h3>
             <div className="max-w-5xl lg:max-w-7xl mx-auto p-5">
                 {displayedProduct && displayedProduct.length > 0 ? (
                     <Slider {...settings}>
                         {displayedProduct.map((item, index) => (
                             <div key={index} className="p-3">
-                                <article className="relative overflow-hidden rounded-lg shadow shadow-orange-100 transition hover:shadow-lg hover:cursor-pointer">
+                                <article className="relative overflow-hidden rounded-lg hover:cursor-pointer">
                                     <img
                                         alt={item?.business_name}
                                         src={item?.business_logo}
@@ -102,8 +102,8 @@ const Featured = () => {
                     </Slider>
                 ) : (
                     <section className="w-full h-screen p-5 mx-auto">
-                        <MdOutlineWifiFind className='text-6xl text-gray-600 text-center w-full' />
-                        <h2 className="mt-2 text-lg font-medium text-center text-gray-800">No Data Found</h2>
+                        <MdOutlineWifiFind className='text-6xl dark:text-white text-gray-700 text-center w-full' />
+                        <h2 className="mt-2 text-lg font-medium text-center dark:text-white text-gray-700">No Data Found</h2>
                     </section>
                 )}
             </div>
