@@ -11,6 +11,7 @@ import Products from "../pages/ProductsPage/Products";
 import ErrorPage from "../ErrorPage";
 import Profile from "../pages/Profile/Profile";
 import SingleBusiness from "../pages/ProductsPage/SingleBusiness";
+import FavoriteProducts from "../pages/ProductsPage/FavoriteProducts";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +32,11 @@ export const router = createBrowserRouter([
             {
                 path: "products/:_id",
                 element: <SingleBusiness></SingleBusiness>,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "favorites/",
+                element: <FavoriteProducts></FavoriteProducts>,
                 errorElement: <ErrorPage />,
             },
             {

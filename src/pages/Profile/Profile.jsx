@@ -3,6 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../providers/AuthProvider';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useNavigate } from 'react-router-dom';
+import Update from '../../components/Testing/Update';
 
 const Profile = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -14,9 +15,6 @@ const Profile = () => {
         photoURL: '',
         password: ''
     });
-
-    console.log(user);
-
 
     const [editing, setEditing] = useState(false);
     const [errors, setErrors] = useState({});
@@ -64,30 +62,29 @@ const Profile = () => {
     };
 
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validateForm();
+
         if (Object.keys(validationErrors).length === 0) {
-            setLoading(true);
-
             try {
-                const response = await axiosSecure.patch(`/users/${profileData.email}`, profileData);
-                console.log('Response from server:', response.data);
+                setLoading(true);
+                const { displayName, photoURL, password } = profileData;
+                const updateData = { displayName, photoURL, password };
 
-                setProfileData({
-                    ...profileData,
-                    displayName: response.data.displayName,
-                    photoURL: response.data.photoURL,
-                });
-                toast.success('Profile updated successfully!');
-                fetchUserProfile();
-                setEditing(false);
-            } catch (error) {
-                toast.error('Failed to update profile. Please try again.');
-                console.error('Error:', error);
-                if (error.response && error.response.data) {
-                    toast.error(error.response.data.message || 'An unknown error occurred');
+                const response = await axiosSecure.patch(`/users/${profileData.email}`, updateData);
+
+                if (response.data.modifiedCount > 0) {
+                    toast.success('Profile updated successfully!');
+                    fetchUserProfile()
+                } else {
+                    toast.error('No changes were made to the profile.');
                 }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+                toast.error('Failed to update profile. Please try again.');
             } finally {
                 setLoading(false);
             }
@@ -95,6 +92,7 @@ const Profile = () => {
             setErrors(validationErrors);
         }
     };
+
 
 
     const handleLogOut = () => {
@@ -178,14 +176,14 @@ const Profile = () => {
                                     />
                                 </figure>
                                 <div className='justify-between w-full space-y-5'>
-                                    <p className='text-lg dark:text-white text-gray-700'>{profileData?.displayName || user?.displayName || 'N/A'}</p>
+                                    <p className='text-lg dark:text-white text-gray-700'>{profileData?.displayName || 'N/A'}</p>
                                     <button onClick={handleLogOut} className="btn btn-sm bg-red-500 text-white hover:bg-red-600 border-0 text-xs font-bold">Log Out</button>
                                 </div>
                             </div>
                             <div className='grid grid-cols-2 gap-10 border dark:border-gray-800 rounded-lg p-5'>
                                 <div>
                                     <p className='text-gray-400'>Name</p>
-                                    <p className='text-lg text-black dark:text-white'>{user?.displayName || 'N/A'}</p>
+                                    <p className='text-lg text-black dark:text-white'>{profileData?.displayName || 'N/A'}</p>
                                 </div>
                                 <div>
                                     <p className='text-gray-400'>Email</p>
@@ -198,6 +196,8 @@ const Profile = () => {
                             >
                                 Edit Profile
                             </button>
+
+                            <Update/>
                         </div>
                     )}
                 </div>

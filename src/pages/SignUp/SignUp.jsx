@@ -24,7 +24,7 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const userInfo = {
-                            name: data.name,
+                            displayName: data.name,
                             email: data.email,
                         }
                         axiosPublic.post('/users', userInfo)

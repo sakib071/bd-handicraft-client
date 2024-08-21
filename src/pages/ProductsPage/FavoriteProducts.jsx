@@ -1,51 +1,49 @@
-import { useQuery } from "@tanstack/react-query";
-import { MdOutlineWifiFind } from "react-icons/md";
-import { FaHeart, FaRegHeart } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
+import { FaHeart } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../providers/AuthProvider"; // Assuming you have AuthContext to get user info
 
-const Products = () => {
-    const axiosPublic = useAxiosPublic();
+const FavoriteProducts = () => {
     const { user } = useContext(AuthContext); // Get the logged-in user
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ["products"],
-        queryFn: async () => {
-            const response = await axiosPublic.get("/products");
-            return response.data;
-        },
-        refetchOnWindowFocus: false,
-    });
-
-    // State to store favorite products for the current user
-    const [favorites, setFavorites] = useState(() => {
-        const savedFavorites = localStorage.getItem(`favoriteProducts_${user?.email}`);
-        return savedFavorites ? JSON.parse(savedFavorites) : [];
-    });
+    const axiosPublic = useAxiosPublic();
+    const [favoriteProducts, setFavoriteProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        const fetchFavorites = async () => {
+            try {
+                // Get the favorite product IDs from local storage for the specific user
+                const savedFavorites = localStorage.getItem(`favoriteProducts_${user?.email}`);
+                const favoriteProductIds = savedFavorites ? JSON.parse(savedFavorites) : [];
 
-    // Handle adding/removing a product to/from favorites
-    const toggleFavorite = (productId) => {
-        let updatedFavorites;
+                // If there are no favorites, don't make any API calls
+                if (favoriteProductIds.length === 0) {
+                    setFavoriteProducts([]);
+                    setIsLoading(false);
+                    return;
+                }
 
-        if (favorites.includes(productId)) {
-            // Remove from favorites
-            updatedFavorites = favorites.filter((id) => id !== productId);
-        } else {
-            // Add to favorites
-            updatedFavorites = [...favorites, productId];
-        }
+                // Fetch details of all favorite products based on their IDs
+                const promises = favoriteProductIds.map((id) => axiosPublic.get(`/products/${id}`));
+                const responses = await Promise.all(promises);
+                const productsData = responses.map((res) => res.data);
 
-        setFavorites(updatedFavorites);
-        // Save favorites in local storage for the specific user
-        localStorage.setItem(`favoriteProducts_${user?.email}`, JSON.stringify(updatedFavorites));
-    };
+                // Update state with the fetched favorite products
+                setFavoriteProducts(productsData);
+                setIsLoading(false);
+            } catch (error) {
+                console.error("Error fetching favorite products:", error);
+                setIsError(true);
+                setIsLoading(false);
+            }
+        };
 
-    if (isLoading)
+        fetchFavorites();
+    }, [axiosPublic, user?.email]);
+
+    if (isLoading) {
         return (
             <div className="h-[500px] w-full flex justify-center items-center">
                 <div className="flex items-center justify-center space-x-2">
@@ -55,22 +53,31 @@ const Products = () => {
                 </div>
             </div>
         );
+    }
 
-    if (isError)
+    if (isError) {
         return (
             <section className="w-full h-[500px] flex flex-col justify-center items-center mx-auto">
-                <MdOutlineWifiFind className="text-6xl text-gray-600 text-center w-full" />
-                <h2 className="mt-2 text-lg font-medium text-center dark:text-white text-gray-800">No Data Found</h2>
+                <h2 className="mt-2 text-lg font-medium text-center text-gray-800">Error fetching favorite products.</h2>
             </section>
         );
+    }
+
+    if (favoriteProducts.length === 0) {
+        return (
+            <section className="w-full h-[500px] flex flex-col justify-center items-center mx-auto">
+                <h2 className="mt-2 text-lg font-medium text-center dark:text-white text-gray-800">No favorite products found.</h2>
+            </section>
+        );
+    }
 
     return (
         <div className="min-h-screen py-20 max-w-7xl mx-auto">
             <h3 className="z-10 text-4xl inter-600 mb-5 mx-auto max-w-3xl dark:text-white text-black text-center">
-                Business <span className="text-teal-500">Products</span>
+                Your <span className="text-teal-500">Favorite</span> Products
             </h3>
             <div className="max-w-5xl xl:max-w-7xl grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
-                {data.map((product, index) => (
+                {favoriteProducts.map((product, index) => (
                     <Link
                         to={`/products/${product?._id}`}
                         key={index}
@@ -85,24 +92,7 @@ const Products = () => {
                                 />
                             </article>
                             <div className="absolute top-3 left-3 flex gap-2 items-center">
-                                {/* Toggle between selected and unselected heart */}
-                                {favorites.includes(product?._id) ? (
-                                    <FaHeart
-                                        className="text-red-500 text-xl cursor-pointer"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            toggleFavorite(product._id);
-                                        }}
-                                    />
-                                ) : (
-                                    <FaRegHeart
-                                        className="text-red-500 text-xl cursor-pointer"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            toggleFavorite(product._id);
-                                        }}
-                                    />
-                                )}
+                                <FaHeart className="text-red-500 text-xl" />
                                 <p className="text-white inter-500">{product?.likes}</p>
                             </div>
                             <div className="absolute bottom-3 left-3 flex gap-2 items-center">
@@ -133,4 +123,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default FavoriteProducts;

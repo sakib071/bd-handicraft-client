@@ -31,6 +31,7 @@ const Navbar = () => {
     const navOptions = <>
         <li><Link to='/' className="hover:text-teal-500 text-base font-semibold">Home</Link></li>
         <li><Link to='/products' className="hover:text-teal-500 text-base font-semibold">Products</Link></li>
+        <li><Link to='/favorites' className="hover:text-teal-500 text-base font-semibold">Favorite Products</Link></li>
         <li><Link to='/blogs' className="hover:text-teal-500 text-base font-semibold">Blog</Link></li>
     </>
 
