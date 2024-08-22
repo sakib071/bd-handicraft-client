@@ -63,17 +63,17 @@ const SingleBusiness = () => {
                     <h3 className="text-xl lg:text-3xl font-semibold mb-3 dark:text-white text-black">About <span className="text-teal-500 uppercase">{data?.business_name}</span></h3>
                     <p className="lg:w-[550px] text-sm lg:text-lg text-justify dark:text-gray-300 text-gray-600">{data?.description}</p>
                     <div className="space-y-2 mt-10 inter-500">
-                        <div className="flex gap-3 items-center">
-                            <MdAccessTimeFilled className="text-teal-500" />
-                            <p className="w-[550px] text-sm dark:text-gray-300 text-gray-600">{data?.years_of_operation} years</p>
+                        <div className="flex gap-2 items-center">
+                            <MdAccessTimeFilled className="text-teal-500 text-3xl" />
+                            <p className="w-[550px] text-base dark:text-gray-300 text-gray-600">{data?.years_of_operation} years</p>
                         </div>
-                        <div className="flex gap-3 items-center">
-                            <FaHeart className="text-teal-500" />
-                            <p className="w-[550px] text-sm dark:text-gray-300 text-gray-600">{data?.likes} likes</p>
+                        <div className="flex gap-2 items-center">
+                            <FaHeart className="text-teal-500 text-3xl" />
+                            <p className="w-[550px] text-base dark:text-gray-300 text-gray-600">{data?.likes} likes</p>
                         </div>
-                        <div className="flex gap-3 items-center">
-                            <FaLocationDot className="text-teal-500" />
-                            <p className="w-[550px] text-sm dark:text-gray-300 text-gray-600">{data?.location}</p>
+                        <div className="flex gap-2 items-center">
+                            <FaLocationDot className="text-teal-500 text-3xl" />
+                            <p className="w-[550px] text-base dark:text-gray-300 text-gray-600">{data?.location}</p>
 
                         </div>
                     </div>
