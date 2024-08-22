@@ -71,7 +71,7 @@ const Featured = () => {
 
     return (
         <div className="my-20">
-            <h3 className="text-3xl font-bold inter-600 text-center mb-10 dark:text-white text-gray-700">Featured <span className="text-teal-500">Products</span></h3>
+            <h3 className="text-2xl lg:text-3xl font-bold inter-600 text-center mb-5 dark:text-white text-gray-700">Featured <span className="text-teal-500">Products</span></h3>
             <div className="max-w-5xl lg:max-w-7xl mx-auto p-5">
                 {displayedProduct && displayedProduct.length > 0 ? (
                     <Slider {...settings}>

@@ -32,17 +32,17 @@ const History = () => {
 
     return (
         <div className="max-w-7xl mx-auto p-8">
-            <h3 className="text-3xl font-bold inter-600 text-center dark:text-white text-gray-800 mb-5">
+            <h3 className="text-2xl lg:text-3xl font-bold inter-600 text-center dark:text-white text-gray-800 mb-5">
                 History of <span className="text-teal-500">Handicrafts in Bangladesh</span>
             </h3>
 
             {
                 data.map((item, index) => (
                     <div key={index}>
-                        <h1 className="text-xl dark:text-white text-gray-500 text-center mb-4">{item?.title}</h1>
+                        <h1 className="text-base lg:text-xl dark:text-white text-gray-500 text-center mb-4">{item?.title}</h1>
 
                         {/* Pre-Independence Era */}
-                        <h2 className="text-xl font-semibold mb-2 text-teal-500">Pre-Independence Era</h2>
+                        <h2 className="text-lg lg:text-xl font-semibold mb-2 text-teal-500">Pre-Independence Era</h2>
                         <p className="mb-4 dark:text-white text-gray-700">
                             <strong className="dark:text-white text-gray-700">British Colonial Influence:</strong> {item?.pre_independence_era?.british_colonial_influence}
                         </p>
@@ -51,7 +51,7 @@ const History = () => {
                         </p>
 
                         {/* Post-Independence Era */}
-                        <h2 className="text-xl font-semibold mb-2 text-teal-500">Post-Independence Era</h2>
+                        <h2 className="text-lg lg:text-xl font-semibold mb-2 text-teal-500">Post-Independence Era</h2>
                         <p className="mb-4 dark:text-white text-gray-700">
                             <strong className="dark:text-white text-gray-700">Government Support:</strong> {item?.post_independence_era?.government_support}
                         </p>
@@ -61,7 +61,7 @@ const History = () => {
                         <p className="mb-4 dark:text-white text-gray-700">
                             <strong className="dark:text-white text-gray-700">Challenges and Opportunities:</strong> {item?.post_independence_era?.challenges_and_opportunities}
                         </p>
-                        <h2 className="text-xl font-semibold mb-4 text-teal-500">Key Handicrafts of Bangladesh</h2>
+                        <h2 className="text-lg lg:text-xl font-semibold mb-4 text-teal-500">Key Handicrafts of Bangladesh</h2>
                         <ul className="list-disc ml-6">
                             {
                                 Object.keys(item?.key_handicrafts).map((handicraftKey, index) => (

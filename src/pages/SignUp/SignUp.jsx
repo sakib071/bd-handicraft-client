@@ -50,14 +50,14 @@ const SignUp = () => {
     };
 
     return (
-        <div className="w-full h-screen flex flex-col justify-center items-center">
-            <div className="card shrink-0 w-full max-w-lg">
+        <div className="lg:w-full h-screen flex flex-col justify-center items-center">
+            <div className="card shrink-0 w-[300px] lg:w-full lg:max-w-lg">
                 <div className='flex gap-1 text-teal-400 my-5 items-center w-full hover:cursor-pointer'>
                     <FaAngleLeft />
                     <a href="/" className='hover:underline'>Back to Home</a>
                 </div>
                 <h1 className="text-2xl font-bold text-center dark:text-white text-gray-900">Sign Up</h1>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="lg:space-y-4">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text dark:text-white text-gray-900">Name</span>

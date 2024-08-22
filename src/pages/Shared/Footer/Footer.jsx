@@ -4,12 +4,15 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     return (
         <footer className="px-4 py-12 mx-auto max-w-7xl">
-            <div className="flex justify-between gap-10 mb-3 lg:gap-20">
-                <div className="w-1/3 space-y-5">
-                    <a href="/" className="uppercase text-xl dark:text-white text-black">Bangladeshi<span className="font-bold text-teal-500">Handcrafts</span></a>
-                    <a href="/" title="Hello next Home Page" className="flex items-center">
-                        <img className="w-20" src="/button.png" alt="" />
-                    </a>
+            <div className="flex lg:flex-row flex-col justify-between gap-10 mb-3 lg:gap-20">
+                <div className="lg:w-1/3 space-y-5">
+                    <div className="flex flex-col-reverse gap-5">
+                        <a href="/" className="uppercase text-xl dark:text-white text-black">Bangladeshi <span className="font-bold text-teal-500">Handcrafts</span></a>
+                        <a href="/" title="" className="flex items-center">
+                            <img className="w-20" src="/button.png" alt="" />
+                        </a>
+                    </div>
+
                     <p className="my-4 text-sm text-justify leading-normal dark:text-white text-gray-600">
                         Discover the exquisite beauty of Bangladesh&apos;s rich heritage through its handcrafted treasures. Our shop offers a curated collection of authentic Bangladeshi handicrafts, each piece a testament to the skill and creativity of local artisans.
                     </p>

@@ -8,3 +8,12 @@
     ),
     url("https://i.ibb.co/KrHqMLr/banner.jpg") no-repeat center center/cover;
 }
+
+/* Responsive rule for mobile devices */
+@media screen and (max-width: 768px) {
+  #bannerBG {
+    height: auto; /* Adjust height as needed for mobile */
+    background-size: cover; /* Ensure the background image covers the area */
+    background-position: center; /* Center the background image */
+  }
+}

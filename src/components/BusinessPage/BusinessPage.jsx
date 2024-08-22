@@ -31,16 +31,16 @@ const BusinessPage = () => {
 
     return (
         <div className="my-20 bg-white dark:bg-gray-900">
-            <h3 className="z-10 text-4xl inter-600 mb-5 mx-auto max-w-3xl dark:text-white text-black text-center">Business <span className="text-teal-500">Products</span></h3>
-            <div className="max-w-5xl xl:max-w-7xl grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
+            <h3 className="z-10 text-2xl lg:text-3xl inter-600 mb-5 mx-auto max-w-3xl dark:text-white text-black text-center">Business <span className="text-teal-500">Products</span></h3>
+            <div className="max-w-5xl xl:max-w-7xl grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
                 {displayedProduct.map((product, index) => (
                     <Link to={`/products/${product?._id}`} key={index} className="flex mx-auto bg-white dark:bg-gray-900 rounded-xl border dark:border-1 dark:border-gray-800 hover:dark:border-teal-500 hover:shadow-lg overflow-hidden transition hover:cursor-pointer">
                         <div className="relative">
-                            <article className="w-[220px] h-full rounded-l-lg">
+                            <article className="lg:w-[220px] h-full rounded-l-lg">
                                 <img
                                     alt={product?.business_name}
                                     src={product?.business_logo}
-                                    className="h-full w-full object-cover"
+                                    className="lg:h-[250px] h-[230px] lg:w-full w-[220px] object-cover"
                                 />
                             </article>
                             <div className='absolute top-3 left-3 flex gap-2 products-center'>
@@ -54,9 +54,9 @@ const BusinessPage = () => {
 
                         <div className="px-4 py-3 w-[180px]">
                             <div className="h-[200px]">
-                                <p className="uppercase tracking-wide text-lg text-teal-500 font-semibold">{product.business_name}</p>
-                                <p className="mt-1 text-base leading-tight font-medium dark:text-white text-black">Operating for 15 Years</p>
-                                <p className="mt-2 text-gray-500 dark:text-gray-400 text-sm line-clamp-6">{product?.description}</p>
+                                <p className="uppercase tracking-wide lg:text-lg text-teal-500 font-semibold">{product.business_name}</p>
+                                <p className="mt-1 lg:text-base leading-tight text-sm font-medium dark:text-white text-black">Operating for {product.years_of_operation} Years</p>
+                                <p className="mt-2 text-gray-500 dark:text-gray-400 text-sm line-clamp-4 lg:line-clamp-6">{product?.description}</p>
                                 <div className="mt-4">
                                 </div>
                             </div>
