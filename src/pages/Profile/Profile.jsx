@@ -7,80 +7,49 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
     const { user, setUser, updateUserProfile, logOut } = useContext(AuthContext);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, setValue } = useForm();
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-    const [profileData, setProfileData] = useState({
-        displayName: '',
-        photoURL: '',
-    });
-
 
     useEffect(() => {
         if (user) {
-            setProfileData({
-                displayName: user?.displayName || '',
-                email: user?.email || '',
-                photoURL: user?.photoURL || '',
-            });
+            // Set default values to the form fields
+            setValue('displayName', user.displayName || '');
+            setValue('photoURL', user.photoURL || '');
         }
-    }, [user]);
-
-    console.log(profileData.displayName);
+    }, [user, setValue]);
 
     const onSubmit = async (data) => {
+        setLoading(true);
         try {
             const updatedData = {
                 displayName: data.displayName,
                 photoURL: data.photoURL || user.photoURL,
             };
 
+            // Update the user profile in Firebase first
+            await updateUserProfile(data.displayName, data.photoURL);
+
+            // Update user profile in the backend
             const response = await axiosSecure.patch(`/users/${user.email}`, updatedData);
 
-            if (response.data.success) {
-                setLoading(true);
-                await updateUserProfile(data.displayName, data.photoURL);
+            if (response.data.success || response.status === 200) {
+                // Refetch updated user profile data from the backend
                 const updatedUser = await axiosSecure.get(`/users/${user.email}`);
-                setUser(updatedUser.data);
-                toast.success(`${data.displayName}'s Profile updated successfully!`);
-                fetchUserProfile();
+                setUser(updatedUser.data); // Update the user in AuthContext
+
+                // Display success message
+                toast.success('profile updated successfully!');
             } else {
                 console.error('Backend reported failure:', response.data);
-                toast.error('Failed to update profile. Please try again.');
+                throw new Error('Backend reported failure');
             }
         } catch (error) {
             console.error("Error while updating:", error);
-            if (error.response) {
-                console.error(error.response.data);
-                console.error(error.response.status);
-                console.error(error.response.headers);
-            } else if (error.request) {
-                // The request was made but no response was received
-                console.error(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                console.error('Error', error.message);
-            }
             toast.error('Failed to update profile. Please try again.');
         } finally {
             setLoading(false);
-        }
-    };
-
-
-    // Fetch updated user profile data from MongoDB
-    const fetchUserProfile = async () => {
-        try {
-            const { data } = await axiosSecure.get(`/users/${user.email}`);
-            setProfileData({
-                displayName: data.displayName,
-                email: data.email,
-                photoURL: data.photoURL,
-            });
-            console.log(data);
-        } catch (error) {
-            console.error("Error fetching updated user profile:", error);
         }
     };
 
@@ -101,12 +70,12 @@ const Profile = () => {
                         <figure className='w-1/3'>
                             <img
                                 className='rounded-full w-[150px] h-[150px] object-cover'
-                                src={user?.photoURL || profileData?.photoURL || "/avatar.jpg"}
+                                src={user?.photoURL || "/avatar.jpg"}
                                 alt="Profile"
                             />
                         </figure>
                         <div className='justify-between w-full space-y-5'>
-                            <p className='text-lg dark:text-white text-gray-700'>{profileData?.displayName || 'N/A'}</p>
+                            <p className='text-lg dark:text-white text-gray-700'>{user?.displayName || 'N/A'}</p>
                             <button onClick={handleLogOut} className="btn btn-sm bg-red-500 text-white hover:bg-red-600 border-0 text-xs font-bold">Log Out</button>
                         </div>
                     </div>
@@ -118,7 +87,6 @@ const Profile = () => {
                             </label>
                             <input
                                 type="text"
-                                defaultValue={user?.displayName || ""}
                                 placeholder="Display Name"
                                 {...register("displayName", { required: true })}
                                 required
@@ -132,7 +100,6 @@ const Profile = () => {
                             </label>
                             <input
                                 type="text"
-                                defaultValue={user?.photoURL || ""}
                                 placeholder="Photo URL"
                                 {...register("photoURL")}
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black dark:text-white bg-white dark:bg-gray-900"
