@@ -3,6 +3,7 @@ import { FaHeart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../providers/AuthProvider"; // Assuming you have AuthContext to get user info
+import CardGrid from "../../components/Loading/CardGrid";
 
 const FavoriteProducts = () => {
     const { user } = useContext(AuthContext); // Get the logged-in user
@@ -45,12 +46,8 @@ const FavoriteProducts = () => {
 
     if (isLoading) {
         return (
-            <div className="h-[500px] w-full flex justify-center items-center">
-                <div className="flex items-center justify-center space-x-2">
-                    <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
-                    <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
-                    <div className="w-4 h-4 rounded-full animate-pulse dark:bg-teal-500"></div>
-                </div>
+            <div className="pt-10">
+                <CardGrid></CardGrid>
             </div>
         );
     }

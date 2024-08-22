@@ -12,7 +12,7 @@ const Banner = () => {
                     </h1>
                     <div className="flex gap-2 justify-center mt-5 lg:hidden">
                         <p className="dark:text-white text-sm px-2 py-1 rounded text-white bg-teal-500 hover:text-teal-500 transition-all ease-in-out"><Link to='/signup'>Register</Link></p>
-                        <p className="dark:text-white text-sm px-2 py-1 rounded text-teal-600 bg-white hover:text-teal-500 transition-all ease-in-out"><Link to='/login'>Login</Link></p>
+                        <p className="dark:text-teal-600 text-sm px-2 py-1 rounded text-teal-600 bg-white hover:text-teal-500 transition-all ease-in-out"><Link to='/login'>Login</Link></p>
                     </div>
                 </div>
 

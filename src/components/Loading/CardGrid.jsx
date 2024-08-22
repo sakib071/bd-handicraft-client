@@ -4,7 +4,7 @@ const CardGrid = () => {
     const cards = Array(6).fill(null);
 
     return (
-        <div className="max-w-6xl grid grid-cols-3 mt-20 h-screen place-content-center mx-auto">
+        <div className="w-full lg:max-w-6xl grid grid-cols-1 lg:grid-cols-3 mt-10  place-content-center mx-auto">
             {cards.map((_, index) => (
                 <LoadingCard key={index} />
             ))}
