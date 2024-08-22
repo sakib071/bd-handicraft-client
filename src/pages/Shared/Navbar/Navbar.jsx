@@ -2,32 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import { useQueryErrorResetBoundary } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
-// import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
 
     const { user } = useContext(AuthContext);
-    const axiosSecure = useAxiosSecure();
     const { theme, toggleTheme } = useContext(ThemeContext);
-    // const [isAdmin] = useAdmin();
 
-    const { data } = useQueryErrorResetBoundary({
-        queryKey: ["users"],
-        queryFn: async () => {
-            const response = await axiosSecure.get(`/users/${user.email}`); // Use GET method
-            return response.data;
-        },
-        refetchOnWindowFocus: false,
-    });
-    console.log(data);
-
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(() => { })
-    //         .catch(error => console.log(error));
-    // }
     const navOptions = <>
         <li><Link to='/' className="hover:text-teal-500 text-base font-semibold">Home</Link></li>
         <li><Link to='/products' className="hover:text-teal-500 text-base font-semibold">Products</Link></li>

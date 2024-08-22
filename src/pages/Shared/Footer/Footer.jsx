@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="flex lg:flex-row flex-col justify-between gap-10 mb-3 lg:gap-20">
                 <div className="lg:w-1/3 space-y-5">
                     <div className="flex flex-col-reverse gap-5">
-                        <a href="/" className="uppercase text-xl dark:text-white text-black">Bangladeshi <span className="font-bold text-teal-500">Handcrafts</span></a>
+                        <a href="/" className="uppercase text-xl dark:text-white text-black">Bangladeshi<span className="font-bold text-teal-500">Handcrafts</span></a>
                         <a href="/" title="" className="flex items-center">
                             <img className="w-20" src="/button.png" alt="" />
                         </a>
@@ -29,9 +29,9 @@ const Footer = () => {
                     <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Social Links</p>
 
                     <div className="flex gap-5 dark:text-white text-gray-800">
-                        <a className="flex mb-3 text-3xl transition md:mb-2 hover:text-teal-500" href="#"><FaSquareFacebook /></a>
-                        <a className="flex mb-3 text-3xl transition md:mb-2 hover:text-teal-500" href="#"><FaInstagram /></a>
-                        <a className="flex mb-3 text-3xl transition md:mb-2 hover:text-teal-500" href="#"><FaLinkedin />
+                        <a className="flex mb-3 text-3xl transition md:mb-2 hover:text-teal-500" href="https://www.facebook.com/"><FaSquareFacebook /></a>
+                        <a className="flex mb-3 text-3xl transition md:mb-2 hover:text-teal-500" href="https://www.instagram.com/"><FaInstagram /></a>
+                        <a className="flex mb-3 text-3xl transition md:mb-2 hover:text-teal-500" href="https://www.linkedin.com/"><FaLinkedin />
                         </a>
                     </div>
 
