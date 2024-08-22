@@ -21,10 +21,10 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                updateUserProfile(data.name, data.photoURL)
+                updateUserProfile(data.displayName, data.photoURL)
                     .then(() => {
                         const userInfo = {
-                            displayName: data.name,
+                            displayName: data.displayName,
                             email: data.email,
                         }
                         axiosPublic.post('/users', userInfo)
@@ -62,8 +62,8 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text dark:text-white text-gray-900">Name</span>
                         </label>
-                        <input type="text" name="name" {...register("name", { required: true })} placeholder="Name" className="input input-bordered text-black dark:text-white bg-white dark:bg-gray-900" />
-                        {errors.name && <span className="text-red-600 mt-1 text-xs">Name is required</span>}
+                        <input type="text" name="displayName" {...register("displayName", { required: true })} placeholder="Name" className="input input-bordered text-black dark:text-white bg-white dark:bg-gray-900" />
+                        {errors.displayName && <span className="text-red-600 mt-1 text-xs">Name is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
