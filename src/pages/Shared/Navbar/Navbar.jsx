@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 
@@ -9,10 +9,34 @@ const Navbar = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     const navOptions = <>
-        <li><Link to='/' className="hover:text-teal-500 text-base font-semibold">Home</Link></li>
-        <li><Link to='/products' className="hover:text-teal-500 text-base font-semibold">Products</Link></li>
-        <li><Link to='/favorites' className="hover:text-teal-500 text-base font-semibold">Favorite Products</Link></li>
-        <li><Link to='/blogs' className="hover:text-teal-500 text-base font-semibold">Blog</Link></li>
+        <li>
+            <NavLink
+                to='/'
+                className={({ isActive }) => isActive ? "text-teal-500 font-semibold" : "hover:text-teal-500 text-base font-semibold"}>
+                Home
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
+                to='/products'
+                className={({ isActive }) => isActive ? "text-teal-500 font-semibold" : "hover:text-teal-500 text-base font-semibold"}>
+                Products
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
+                to='/favorites'
+                className={({ isActive }) => isActive ? "text-teal-500 font-semibold" : "hover:text-teal-500 text-base font-semibold"}>
+                Favorite Products
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
+                to='/blogs'
+                className={({ isActive }) => isActive ? "text-teal-500 font-semibold" : "hover:text-teal-500 text-base font-semibold"}>
+                Blog
+            </NavLink>
+        </li>
     </>
 
     return (
@@ -39,13 +63,12 @@ const Navbar = () => {
                     {
                         user ?
                             <a href="/profile" className="flex gap-3 items-center">
-                                {/* <a className="ml-4 font-semibold hover:text-teal-500 dark:text-white text-black">{user?.displayName || "user"}</a> */}
                                 <figure><img className="w-10 h-10 rounded-full object-cover" src={user?.photoURL || "/avatar.jpg"} alt="" /></figure>
                             </a> :
                             <div className="lg:flex gap-2 hidden">
-                                <p className="dark:text-white text-black hover:text-teal-500 transition-all ease-in-out"><Link to='/signup'>Register</Link></p>
+                                <p className="dark:text-white text-black hover:text-teal-500 transition-all ease-in-out"><NavLink to='/signup'>Register</NavLink></p>
                                 <div>|</div>
-                                <p className="dark:text-white text-black hover:text-teal-500 transition-all ease-in-out"><Link to='/login'>Login</Link></p>
+                                <p className="dark:text-white text-black hover:text-teal-500 transition-all ease-in-out"><NavLink to='/login'>Login</NavLink></p>
                             </div>
                     }
 

@@ -38,8 +38,6 @@ const Profile = () => {
                 // Refetch updated user profile data from the backend
                 const updatedUser = await axiosSecure.get(`/users/${user.email}`);
                 setUser(updatedUser.data); // Update the user in AuthContext
-
-                // Display success message
                 toast.success('profile updated successfully!');
             } else {
                 console.error('Backend reported failure:', response.data);

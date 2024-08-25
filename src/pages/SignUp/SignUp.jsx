@@ -31,8 +31,8 @@ const SignUp = () => {
                             .then(res => {
                                 if (res.data.insertedId) {
                                     console.log("user added to the database");
-                                    reset();
                                     toast.success('Signup successful!');
+                                    reset();
                                     navigate("/");
                                 }
                             })
