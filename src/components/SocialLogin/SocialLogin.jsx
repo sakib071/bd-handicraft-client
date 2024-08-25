@@ -43,7 +43,7 @@ const SocialLogin = () => {
     return (
         <div className="flex flex-col gap-2">
             <button onClick={handleGoogleSignIn} className="btn btn-primary border-0 hover:bg-red-600 bg-red-500 w-full text-white font-semibold">Google</button>
-            <button onClick={handleGitHubSignIn} className="btn btn-primary border-0 hover:bg-slate-900 bg-slate-800 w-full text-white font-semibold">Github</button>
+            <button onClick={handleGitHubSignIn} className="btn btn-primary border-0 hover:bg-slate-900 bg-slate-800 dark:bg-gray-300 hover:dark:bg-white w-full text-white dark:text-black font-semibold">Github</button>
         </div>
     );
 };

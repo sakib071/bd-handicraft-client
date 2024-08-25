@@ -64,15 +64,15 @@ const SingleBusiness = () => {
                     <p className="lg:w-[550px] text-sm lg:text-lg text-justify dark:text-gray-300 text-gray-600">{data?.description}</p>
                     <div className="space-y-2 mt-10 inter-500">
                         <div className="flex gap-2 items-center">
-                            <MdAccessTimeFilled className="text-teal-500 text-3xl" />
+                            <MdAccessTimeFilled className="text-teal-500 lg:text-xl text-3xl" />
                             <p className="w-[550px] text-base dark:text-gray-300 text-gray-600">{data?.years_of_operation} years</p>
                         </div>
                         <div className="flex gap-2 items-center">
-                            <FaHeart className="text-teal-500 text-3xl" />
+                            <FaHeart className="text-teal-500 lg:text-xl text-3xl" />
                             <p className="w-[550px] text-base dark:text-gray-300 text-gray-600">{data?.likes} likes</p>
                         </div>
                         <div className="flex gap-2 items-center">
-                            <FaLocationDot className="text-teal-500 text-3xl" />
+                            <FaLocationDot className="text-teal-500 lg:text-xl text-3xl" />
                             <p className="w-[550px] text-base dark:text-gray-300 text-gray-600">{data?.location}</p>
 
                         </div>
