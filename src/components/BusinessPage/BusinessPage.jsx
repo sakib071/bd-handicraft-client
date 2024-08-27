@@ -32,7 +32,7 @@ const BusinessPage = () => {
     return (
         <div className="my-20 bg-white dark:bg-gray-900">
             <h3 className="z-10 text-2xl lg:text-3xl inter-600 mb-5 mx-auto max-w-3xl dark:text-white text-black text-center">Business <span className="text-teal-500">Products</span></h3>
-            <div className="max-w-5xl xl:max-w-7xl grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
+            <div className="lg:max-w-4xl xl:max-w-7xl grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
                 {displayedProduct.map((product, index) => (
                     <Link to={`/products/${product?._id}`} key={index} className="flex mx-auto bg-white dark:bg-gray-900 rounded-xl border dark:border-1 dark:border-gray-800 hover:dark:border-teal-500 hover:shadow-lg overflow-hidden transition hover:cursor-pointer">
                         <div className="relative">

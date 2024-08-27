@@ -74,7 +74,7 @@ const Navbar = () => {
 
                     <input
                         onClick={toggleTheme} id="theme-toggle" type="checkbox"
-                        className={`rounded-full toggle toggle-sm ${theme === 'dark' ? 'bg-teal-500' : 'bg-white'}`} defaultChecked
+                        className={`rounded-full toggle toggle-sm ${theme === 'dark' ? 'bg-teal-500' : 'bg-teal-500'}`} defaultChecked
                     />
                 </div>
             </div>
