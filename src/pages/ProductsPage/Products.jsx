@@ -66,7 +66,7 @@ const Products = () => {
             <h3 className="z-10 text-2xl lg:text-3xl inter-600 lg:mb-5 mx-auto max-w-3xl dark:text-white text-black text-center">
                 Business <span className="text-teal-500">Products</span>
             </h3>
-            <div className="max-w-5xl xl:max-w-7xl grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
+            <div className="max-w-5xl xl:max-w-7xl grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-5 mx-auto justify-center gap-5 xl:gap-10">
                 {data.map((product, index) => (
                     <Link
                         to={`/products/${product?._id}`}

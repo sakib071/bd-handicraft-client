@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../providers/AuthProvider';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Profile = () => {
     const { user, setUser, updateUserProfile, logOut } = useContext(AuthContext);
@@ -61,6 +62,9 @@ const Profile = () => {
 
     return (
         <div className="min-h-screen max-w-3xl flex flex-col justify-center mx-auto">
+            <Helmet>
+                <title>Bangladeshi Handcrafts | Profile</title>
+            </Helmet>
             <div className='bg-white dark:bg-gray-900 border dark:border-gray-800 p-5 rounded-lg'>
                 <h2 className="text-2xl font-bold mb-5 text-black dark:text-white">Profile Information</h2>
                 <div>
